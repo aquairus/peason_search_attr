@@ -14,13 +14,23 @@ from flask import Flask, request, render_template, session, redirect, url_for, f
 import json
 from werkzeug import secure_filename
 
+
+model_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network/lib"
 import sys
 sys.path.append(model_path)
+
 import caffe
 from wpal_net.recog import recognize_attr
 from utils.rap_db import RAP
 import cv2
 import numpy as np
+
+par_set_id=0
+db_path="/data/RAP"
+db = RAP(db_path, par_set_id)
+img_path=db.get_img_path(1)
+
+threshold = np.ones(db.num_attr) * 0.5
 caffemodel="../data/snapshots/VGG_S_MLL_RAP/0/RAP/vgg_s_mll_rap_iter_100000.caffemodel"
 prototxt="../models/VGG_S_MLL_RAP/test_net.prototxt"
 net = caffe.Net(prototxt, caffemodel, caffe.TEST)
@@ -179,14 +189,6 @@ def index():
     return render_template('index_plus.html')
 
 
-# @app.route('/base', methods=['GET', 'POST'])
-# def index1():
-#     return render_template('index_base.html')
-#
-#
-# @app.route('/final', methods=['GET', 'POST'])
-# def index2():
-#     return render_template('index_final.html')
 
 
 if __name__ == '__main__':
