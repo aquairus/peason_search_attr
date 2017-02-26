@@ -16,8 +16,10 @@ from werkzeug import secure_filename
 
 
 model_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network/lib"
+caffe_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network"
 import sys
 sys.path.append(model_path)
+sys.path.append(caffe_path)
 
 import caffe
 from wpal_net.recog import recognize_attr
