@@ -184,7 +184,7 @@ def search_image():
     # if not os.path.exists(index_file):
     #     lib.index.build_index(index_file,'data/dataset')
     # result_file=lib.search.image_search(image_key,index_file,cnt=30)
-    return json.dumps({"attr":list(attr),"attr_eng":str(db.attr_eng),"attr_chinese":str(db.attr_ch)})
+    return json.dumps({"attr":str(attr),"attr_eng":str(db.attr_eng),"attr_chinese":str(db.attr_ch)})
 
 
 

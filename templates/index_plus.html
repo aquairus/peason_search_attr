@@ -205,12 +205,13 @@ $(function () {
         });
         result_name=data.result.files[0].name;
         var target_url='/search_image?image_key=data/'+result_name
-
+        var attr;
         $.get(target_url, function(result){
           // console.log(result);
           result_list=JSON.parse(result)
           $('#album').empty()
           $(result_list).each(function(idx,ele){
+            attr=ele
             $('#album').append(ele+"<br>");
           })
           $('#files').empty()
