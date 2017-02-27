@@ -33,8 +33,10 @@ db = RAP(db_path, par_set_id)
 img_path=db.get_img_path(1)
 
 threshold = np.ones(db.num_attr) * 0.5
-caffemodel="../data/snapshots/VGG_S_MLL_RAP/0/RAP/vgg_s_mll_rap_iter_100000.caffemodel"
-prototxt="../models/VGG_S_MLL_RAP/test_net.prototxt"
+
+net_dir="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network"
+caffemodel=net_dir+"/data/snapshots/VGG_S_MLL_RAP/0/RAP/vgg_s_mll_rap_iter_100000.caffemodel"
+prototxt=net_dir+"/models/VGG_S_MLL_RAP/test_net.prototxt"
 net = caffe.Net(prototxt, caffemodel, caffe.TEST)
 net.name = "rap_test"
 
