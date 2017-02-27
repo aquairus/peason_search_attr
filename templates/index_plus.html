@@ -109,6 +109,7 @@
 /*global window, $ */
 var result_name;
 var result_list;
+var attr;
 $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
@@ -205,7 +206,7 @@ $(function () {
         });
         result_name=data.result.files[0].name;
         var target_url='/search_image?image_key=data/'+result_name
-        var attr;
+
         $.get(target_url, function(result){
           // console.log(result);
           result_list=JSON.parse(result)
