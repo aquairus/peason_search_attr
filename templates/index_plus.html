@@ -208,7 +208,9 @@ $(function () {
         });
         result_name=data.result.files[0].name;
         var target_url='/search_image?image_key=data/'+result_name
-
+        if ($("#files div").length>1){
+          $("#files div").first().remove()
+        }
         $.get(target_url, function(result){
           $('#album').empty()
           result_list=JSON.parse(result)
