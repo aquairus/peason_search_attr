@@ -190,7 +190,7 @@ def search_image():
     string=[]
     for i in range(len(attr)):
         string.append("{0}{1}   :  {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
-        # print db.attr_ch[i][0][0]
+        print db.attr_ch[i][0][0].encode('utf-8')
         # str(db.attr_eng[i])++":"+str(attr[i])+"\n"
     return  json.dumps(string, ensure_ascii=False)
 
