@@ -4,6 +4,9 @@
 # Email: ngokhanhit@gmail.com
 # Git repository: https://github.com/ngoduykhanh/flask-file-uploader
 # This work based on jQuery-File-Upload which can be found at https://github.com/blueimp/jQuery-File-Upload/
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 import os
 import PIL
