@@ -164,6 +164,7 @@ $(function () {
             node.appendTo(data.context);
         });
     }).on('fileuploadprocessalways', function (e, data) {
+        $('#album').empty()
         var index = data.index,
             file = data.files[index],
             node = $(data.context.children()[index]);
@@ -210,7 +211,7 @@ $(function () {
         $.get(target_url, function(result){
           // console.log(result);
           result_list=JSON.parse(result)
-          $('#album').empty()
+          // $('#album').empty()
           $(result_list).each(function(idx,ele){
             attr=ele
             $('#album').append(ele+"<br>");
