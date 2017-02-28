@@ -134,6 +134,7 @@ $(function () {
                 });
             });
     $('#fileupload').fileupload({
+        $('#album').empty()
         url: url,
         dataType: 'json',
         autoUpload: false,
@@ -164,7 +165,7 @@ $(function () {
             node.appendTo(data.context);
         });
     }).on('fileuploadprocessalways', function (e, data) {
-        $('#album').empty()
+
         var index = data.index,
             file = data.files[index],
             node = $(data.context.children()[index]);
