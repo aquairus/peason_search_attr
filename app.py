@@ -186,9 +186,9 @@ def search_image():
     # result_file=lib.search.image_search(image_key,index_file,cnt=30)
     string=[]
     for i in range(len(attr)):
-        string.append("{0}  {1} : {2} ".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0],attr[i]))
+        string.append("{0}  {1} : {2} ".format(str(db.attr_eng[i][0][0]),str(db.attr_ch[i][0][0]),attr[i]))
         # str(db.attr_eng[i])++":"+str(attr[i])+"\n"
-    return  json.dumps(string)
+    return  json.dumps(string, ensure_ascii=False)
 
 
 
