@@ -189,8 +189,10 @@ def search_image():
     # result_file=lib.search.image_search(image_key,index_file,cnt=30)
     string=[]
     for i in range(len(attr)):
-        string.append("{0}  ------ {1}:            \
-         {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
+        if attr[i]>0 or "Female"in db.attr_eng[i][0][0]:
+            string.append("{0}  ------ {1}:            \
+             {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
+        # else if ["Female"] in db.attr_eng[i][0][0]:     
         # print db.attr_ch[i][0][0].encode('utf-8')
         # str(db.attr_eng[i])++":"+str(attr[i])+"\n"
     return  json.dumps(string, ensure_ascii=False)
