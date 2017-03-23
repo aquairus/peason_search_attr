@@ -24,10 +24,14 @@ from werkzeug import secure_filename
 # import caffe
 # from wpal_net.recog import recognize_attr
 # from utils.rap_db import RAP
+
+# import sys
+# sys.path.append(model_path)
+# sys.path.append(caffe_path)
 import cv2
 from lib.attr_net import db
 from lib.attr_net import threshold
-from lib.attr_net import get_attr_net
+from lib.attr_net import get_attr_net,recognize_attr
 attr_net=get_attr_net()
 # import numpy as np
 #
