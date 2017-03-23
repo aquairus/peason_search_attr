@@ -14,31 +14,35 @@ from flask import Flask, request, render_template, session, redirect, url_for, f
 import json
 from werkzeug import secure_filename
 
-
-model_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network/lib"
-caffe_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network"
-import sys
-sys.path.append(model_path)
-sys.path.append(caffe_path)
-
-import caffe
-from wpal_net.recog import recognize_attr
-from utils.rap_db import RAP
+#
+# model_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network/lib"
+# caffe_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network"
+# import sys
+# sys.path.append(model_path)
+# sys.path.append(caffe_path)
+#
+# import caffe
+# from wpal_net.recog import recognize_attr
+# from utils.rap_db import RAP
 import cv2
-import numpy as np
-
-par_set_id=0
-db_path="/data/RAP"
-db = RAP(db_path, par_set_id)
-img_path=db.get_img_path(1)
-
-threshold = np.ones(db.num_attr) * 0.5
-
-net_dir="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network"
-caffemodel=net_dir+"/data/snapshots/VGG_S_MLL_RAP/0/RAP/vgg_s_mll_rap_iter_100000.caffemodel"
-prototxt=net_dir+"/models/VGG_S_MLL_RAP/test_net.prototxt"
-net = caffe.Net(prototxt, caffemodel, caffe.TEST)
-net.name = "rap_test"
+from lib.attr_net import db
+from lib.attr_net import threshold
+from lib.attr_net import get_attr_net
+attr_net=get_attr_net()
+# import numpy as np
+#
+# par_set_id=0
+# db_path="/data/RAP"
+# db = RAP(db_path, par_set_id)
+# img_path=db.get_img_path(1)
+#
+# threshold = np.ones(db.num_attr) * 0.5
+#
+# net_dir="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network"
+# caffemodel=net_dir+"/data/snapshots/VGG_S_MLL_RAP/0/RAP/vgg_s_mll_rap_iter_100000.caffemodel"
+# prototxt=net_dir+"/models/VGG_S_MLL_RAP/test_net.prototxt"
+# net = caffe.Net(prototxt, caffemodel, caffe.TEST)
+# net.name = "rap_test"
 
 from lib.upload_file import uploadfile
 
@@ -142,24 +146,6 @@ def upload():
     return redirect(url_for('index'))
 
 
-# @app.route("/delete/<string:filename>", methods=['DELETE'])
-# def delete(filename):
-#     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-#     file_thumb_path = os.path.join(app.config['THUMBNAIL_FOLDER'], filename)
-#
-#     if os.path.exists(file_path):
-#         try:
-#             os.remove(file_path)
-#
-#             if os.path.exists(file_thumb_path):
-#                 os.remove(file_thumb_path)
-#
-#             return simplejson.dumps({filename: 'True'})
-#         except:
-#             return simplejson.dumps({filename: 'False'})
-
-
-# serve static files
 @app.route("/thumbnail/<string:filename>", methods=['GET'])
 def get_thumbnail(filename):
     return send_from_directory(app.config['THUMBNAIL_FOLDER'], filename=filename)
@@ -180,7 +166,7 @@ def search_image():
 
     image_key=request.args.get('image_key', '')
     img = cv2.imread(image_key)
-    attr, _, score, _ = recognize_attr(net, img, db.attr_group, threshold)
+    attr, _, score, _ = recognize_attr(attr_net, img, db.attr_group, threshold)
 
     string=[]
     for i in range(len(attr)):
