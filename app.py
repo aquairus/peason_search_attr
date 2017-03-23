@@ -1,9 +1,6 @@
 #!flask/bin/python
 
-# Author: Ngo Duy Khanh
-# Email: ngokhanhit@gmail.com
-# Git repository: https://github.com/ngoduykhanh/flask-file-uploader
-# This work based on jQuery-File-Upload which can be found at https://github.com/blueimp/jQuery-File-Upload/
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -180,19 +177,17 @@ def get_dataset(filename):
 
 @app.route('/search_image', methods=['GET', 'POST'])
 def search_image():
-    # index_file='data/index.csv'
+
     image_key=request.args.get('image_key', '')
     img = cv2.imread(image_key)
     attr, _, score, _ = recognize_attr(net, img, db.attr_group, threshold)
-    # if not os.path.exists(index_file):
-    #     lib.index.build_index(index_file,'data/dataset')
-    # result_file=lib.search.image_search(image_key,index_file,cnt=30)
+
     string=[]
     for i in range(len(attr)):
         if attr[i]>0 or "Female"in db.attr_eng[i][0][0]:
             string.append("{0}  ------ {1}:            \
              {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
-        # else if ["Female"] in db.attr_eng[i][0][0]:     
+        # else if ["Female"] in db.attr_eng[i][0][0]:
         # print db.attr_ch[i][0][0].encode('utf-8')
         # str(db.attr_eng[i])++":"+str(attr[i])+"\n"
     return  json.dumps(string, ensure_ascii=False)
