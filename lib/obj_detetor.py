@@ -22,7 +22,11 @@ def get_peason_bbox(image):
 
     rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
     pick = non_max_suppression(rects, probs=None, overlapThresh=0.65)
-
+    for p in pick:
+        if p[0]<1:
+            p[0]=1
+        if p[1]<1:
+            p[1]=1
     return pick
 
 def get_pedestrian_image(image_key):
