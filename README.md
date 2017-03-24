@@ -10,6 +10,13 @@ built on Python Flask and [jQuery-File-Upload](https://github.com/blueimp/jQuery
 ###图像处理：
 opencv and pil
 
+#流程
+
+0. picture
+1. hog+svm
+2. layout & attrbute
+3. return picture with annoation+attr
+
 ##部署
 1. cd data;mkrdir dataset; move your pictures to this folder
 2. python app.py

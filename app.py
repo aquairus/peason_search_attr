@@ -14,39 +14,13 @@ from flask import Flask, request, render_template, session, redirect, url_for, f
 import json
 from werkzeug import secure_filename
 
-#
-# model_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network/lib"
-# caffe_path ="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network"
-# import sys
-# sys.path.append(model_path)
-# sys.path.append(caffe_path)
-#
-# import caffe
-# from wpal_net.recog import recognize_attr
-# from utils.rap_db import RAP
 
-# import sys
-# sys.path.append(model_path)
-# sys.path.append(caffe_path)
 import cv2
-from lib.attr_net import db
-from lib.attr_net import threshold
-from lib.attr_net import get_attr_net,recognize_attr
+from lib.attr_net import db,threshold, get_attr_net,recognize_attr
+from lib.obj_detetor import *
+
+
 attr_net=get_attr_net()
-# import numpy as np
-#
-# par_set_id=0
-# db_path="/data/RAP"
-# db = RAP(db_path, par_set_id)
-# img_path=db.get_img_path(1)
-#
-# threshold = np.ones(db.num_attr) * 0.5
-#
-# net_dir="/data/Weakly-supervised-Pedestrian-Attribute-Localization-Network"
-# caffemodel=net_dir+"/data/snapshots/VGG_S_MLL_RAP/0/RAP/vgg_s_mll_rap_iter_100000.caffemodel"
-# prototxt=net_dir+"/models/VGG_S_MLL_RAP/test_net.prototxt"
-# net = caffe.Net(prototxt, caffemodel, caffe.TEST)
-# net.name = "rap_test"
 
 from lib.upload_file import uploadfile
 
@@ -135,7 +109,7 @@ def upload():
             return simplejson.dumps({"files": [result.get_file()]})
 
     if request.method == 'GET':
-        # get all file in ./data directory
+
         files = [ f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'],f)) and f not in IGNORED_FILES ]
 
         file_display = []
@@ -169,18 +143,22 @@ def get_dataset(filename):
 def search_image():
 
     image_key=request.args.get('image_key', '')
-    img = cv2.imread(image_key)
-    attr, _, score, _ = recognize_attr(attr_net, img, db.attr_group, threshold)
-
-    string=[]
-    for i in range(len(attr)):
-        if attr[i]>0 or "Female"in db.attr_eng[i][0][0]:
-            string.append("{0}  ------ {1}:            \
-             {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
-        # else if ["Female"] in db.attr_eng[i][0][0]:
+    org_img=get_pedestrian_image(image_key)
+    pick=get_peason_bbox(org_img)
+    pedestrian_attr=[]
+    image_list=crop_pedestrian_image(org_img,pick)
+    for img in image_list:
+        string=[]
+        attr, _, score, _ = recognize_attr(attr_net, img, db.attr_group, threshold)
+        for i in range(len(attr)):
+            if attr[i]>0 or "Female"in db.attr_eng[i][0][0]:
+                string.append("{0}  ------ {1}:            \
+                 {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
+        pedestrian_attr.append(string)
+            # else if ["Female"] in db.attr_eng[i][0][0]:
         # print db.attr_ch[i][0][0].encode('utf-8')
         # str(db.attr_eng[i])++":"+str(attr[i])+"\n"
-    return  json.dumps(string, ensure_ascii=False)
+    return  json.dumps(pedestrian_attr, ensure_ascii=False)
 
 
 
