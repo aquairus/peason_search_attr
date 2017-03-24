@@ -25,6 +25,7 @@ attr_net=get_attr_net()
 from lib.upload_file import uploadfile
 
 app = Flask(__name__)
+
 app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['UPLOAD_FOLDER'] = 'data/'
 app.config['DATASET_FOLDER'] = 'data/dataset'
@@ -148,6 +149,7 @@ def search_image():
     pedestrian_attr=[]
     image_list=crop_pedestrian_image(org_img,pick)
     for img in image_list:
+        print (img.shape)
         string=[]
         attr, _, score, _ = recognize_attr(attr_net, img, db.attr_group, threshold)
         for i in range(len(attr)):
