@@ -1,8 +1,8 @@
+from __future__ import print_function
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import sys
-from __future__ import print_function
 from imutils.object_detection import non_max_suppression
 from imutils import paths
 
