@@ -3,6 +3,7 @@
 
 from lib.attr_net import db,threshold, get_attr_net,recognize_attr
 from lib.obj_detetor import *
+from lib.peason_layout import parse_layout
 
 attr_net=get_attr_net()
 
@@ -18,17 +19,8 @@ def parse_image(image_key):
         pedestrian_attr.append(img_info)
     return pedestrian_attr
 
-        # {}
-        # img_info['attr']=[]
-        # attr, _, score, _ = recognize_attr(attr_net, img, db.attr_group, threshold)
-        # for i in range(len(attr)):
-        #     if attr[i]>0 or "Female"in db.attr_eng[i][0][0]:
-        #         img_info['attr'].append("{0}  ------ {1}:            \
-        #          {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
-        #
-    #     pedestrian_attr.append(img_info)
-    #
-    # return pedestrian_attr
+
+
 
 def parse_one_pedestrian(img):
     img_info={}
@@ -38,4 +30,5 @@ def parse_one_pedestrian(img):
         if attr[i]>0 or "Female"in db.attr_eng[i][0][0]:
             img_info['attr'].append("{0}  ------ {1}:            \
              {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
+    img_info['layout']=parse_layout(img)
     return img_info
