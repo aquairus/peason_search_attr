@@ -144,22 +144,25 @@ def get_dataset(filename):
 def search_image():
 
     image_key=request.args.get('image_key', '')
+
+    pedestrian_attr=parse_image(image_key)
+
     org_img=get_pedestrian_image(image_key)
     pick=get_peason_bbox(org_img)
     pedestrian_attr=[]
     image_list=crop_pedestrian_image(org_img,pick)
+
     for img in image_list:
-        print (img.shape)
-        string=[]
+        img_info={}
+        img_info['attr']=[]
         attr, _, score, _ = recognize_attr(attr_net, img, db.attr_group, threshold)
         for i in range(len(attr)):
             if attr[i]>0 or "Female"in db.attr_eng[i][0][0]:
-                string.append("{0}  ------ {1}:            \
+                img_info['attr'].append("{0}  ------ {1}:            \
                  {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
-        pedestrian_attr.append(string)
-            # else if ["Female"] in db.attr_eng[i][0][0]:
-        # print db.attr_ch[i][0][0].encode('utf-8')
-        # str(db.attr_eng[i])++":"+str(attr[i])+"\n"
+
+        pedestrian_attr.append(img_info)
+
     return  json.dumps(pedestrian_attr, ensure_ascii=False)
 
 
