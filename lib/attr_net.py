@@ -29,4 +29,16 @@ def get_attr_net(start=0,end=3):
     attr_net.name = "rap_test"
     return attr_net
 
+
+#
+def get_all_nets(items):
+    all_nets={}
+    for attr in attrs:
+        start=attr[0]
+        end=attr[1]
+        all_nets[start]=get_attr_net(start,end)
+    return all_nets
+
+# get_attr_net()
+
 #import cv2
