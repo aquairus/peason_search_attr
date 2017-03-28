@@ -1,4 +1,4 @@
-caffe_path ="/data/my_rap_network/lib"
+caffe_path ="/data/py-faster-rcnn/caffe-fast-rcnn/python"
 model_path ="/data/py-faster-rcnn/lib"
 
 import sys
