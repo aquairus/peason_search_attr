@@ -13,8 +13,9 @@ def parse_image(image_key):
     pedestrian_attr=[]
     image_list=crop_pedestrian_image(org_img,pick)
     print len(image_list)
-    for img in image_list:
+    for idx,img in enumerate(image_list):
         img_info=parse_one_pedestrian(img)
+        img_info["position"]=pick[idx]
         pedestrian_attr.append(img_info)
     return pedestrian_attr
 
@@ -47,5 +48,6 @@ def get_all_attrs(img):
             print attr
             max_index=attr.argmax()
             #for i in range(len(attr)):
-            attrs_info[lib.attr_net.db.attr_eng[max_index+start][0][0]]=int(round(attr[max_index]))
+            attrs_info[lib.attr_net.db.attr_eng[max_index+start][0][0]]=1
+            #int(round(attr[max_index]))
     return attrs_info
