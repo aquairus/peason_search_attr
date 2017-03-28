@@ -13,7 +13,7 @@ from fast_rcnn.config import cfg
 # print cfg.TEST.SCALES
 # sleep(10)
 import fast_rcnn.test
-from fast_rcnn.test import *
+# from fast_rcnn.test import *
 # im_detect
 from fast_rcnn.nms_wrapper import nms
 
@@ -44,7 +44,7 @@ def vis_detections(im, class_name, dets, thresh=0.5):
 
 def parse_layout(im):
 
-    scores, boxes = im_detect(net, im)
+    scores, boxes = fast_rcnn.test.im_detect(net, im)
 
     print ('Detection took {:.3f}s for '
            '{:d} object proposals').format(timer.total_time, boxes.shape[0])
