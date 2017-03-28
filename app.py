@@ -161,6 +161,7 @@ def search_image():
     #
     #     pedestrian_attr.append(img_info)
     print pedestrian_attr
+    print "fuck"
     return  json.dumps(pedestrian_attr, ensure_ascii=False)
 
 
