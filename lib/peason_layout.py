@@ -41,8 +41,6 @@ def parse_layout(im):
 
     scores, boxes = fast_rcnn.test.im_detect(net, im)
 
-    print ('Detection took {:.3f}s for '
-           '{:d} object proposals').format(timer.total_time, boxes.shape[0])
 
     CONF_THRESH = 0.8
     NMS_THRESH = 0.3
