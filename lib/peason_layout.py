@@ -7,7 +7,9 @@ sys.path.append(model_path)
 
 
 from fast_rcnn.config import cfg
+import utils.blob
 import fast_rcnn.test
+
 from fast_rcnn.nms_wrapper import nms
 
 
