@@ -1,7 +1,8 @@
 #orz
 
 
-from lib.attr_net import db,threshold, get_attr_net,recognize_attr,get_all_nets
+from lib import attr_net
+import db,threshold, get_attr_net,recognize_attr,get_all_nets
 from lib.obj_detetor import *
 from lib import peason_layout
  # import parse_layout
@@ -9,7 +10,7 @@ from lib import peason_layout
 # attr_net=get_attr_net()
 attrs=[[0,1]]
 # [1,4],[4,7]]
-all_nets=get_all_nets(attrs)
+all_nets=attr_net.get_all_nets(attrs)
 
 
 def parse_image(image_key):
@@ -44,7 +45,7 @@ def get_all_attrs(img):
     for attr in attrs:
         start=attr[0]
         attr_net=all_nets[start]
-        attr, _, score, _ = recognize_attr(attr_net, img, db.attr_group, threshold)
+        attr, _, score, _ = attr_net.recognize_attr(attr_net, img, attr_net.db.attr_group, attr_net.threshold)
         for i in range(len(attr)):
-            attrs_info[db.attr_eng[i+start][0][0]]=attr[i]
+            attrs_info[attr_net.db.attr_eng[i+start][0][0]]=attr[i]
     return attrs_info
