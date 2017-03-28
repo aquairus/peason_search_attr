@@ -1,9 +1,9 @@
-# caffe_path ="/data/py-faster-rcnn/lib/roi_data_layer"
+caffe_path ="/data/py-faster-rcnn/caffe-fast-rcnn/python"
 model_path ="/data/py-faster-rcnn/lib"
 
 import sys
 sys.path.append(model_path)
-# sys.path.append(caffe_path)
+sys.path.append(caffe_path)
 
 
 
