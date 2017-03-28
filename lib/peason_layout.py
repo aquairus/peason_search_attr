@@ -1,10 +1,9 @@
 caffe_path ="/data/py-faster-rcnn/caffe-fast-rcnn/python"
 model_path ="/data/py-faster-rcnn/lib"
-
 import sys
-sys.path.append(model_path)
-sys.path.append(caffe_path)
 
+sys.path.append(caffe_path)
+sys.path.append(model_path)
 
 
 from fast_rcnn.config import cfg
@@ -61,6 +60,7 @@ def parse_layout(im):
 
 
 
+sys.path.pop()
 
 # print '\n\nLoaded network {:s}'.format(caffemodel)
 # im_names = 'data/VOCdevkit2007/VOC2007/JPEGImages/422.png'
