@@ -41,5 +41,5 @@ def get_all_attrs(img):
         single_attr_net=all_nets[start]
         attr, _, score, _ = lib.attr_net.recognize_attr(single_attr_net, img, lib.attr_net.db.attr_group, lib.attr_net.threshold)
         for i in range(len(attr)):
-            attrs_info[lib.attr_net.db.attr_eng[i+start][0][0]]=attr[i]
+            attrs_info[lib.attr_net.db.attr_eng[i+start][0][0]]=int(attr[i])
     return attrs_info
