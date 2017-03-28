@@ -1,4 +1,4 @@
-caffe_path ="/data/py-faster-rcnn/caffe-fast-rcnn/python"
+caffe_path ="/data/py-faster-rcnn/lib/roi_data_layer"
 model_path ="/data/py-faster-rcnn/lib"
 
 import sys
