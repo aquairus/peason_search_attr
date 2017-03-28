@@ -1,5 +1,5 @@
 import lib.peason_layout
-import lib.attr_net
+from lib import attr_net
 from lib.obj_detetor import *
 
 ##import db,threshold, get_attr_net,recognize_attr,get_all_nets
