@@ -2,9 +2,10 @@
 
 
 from lib import attr_net
-##import db,threshold, get_attr_net,recognize_attr,get_all_nets
+
 from lib.obj_detetor import *
 from lib import peason_layout
+##import db,threshold, get_attr_net,recognize_attr,get_all_nets
  # import parse_layout
 # import
 # attr_net=get_attr_net()
