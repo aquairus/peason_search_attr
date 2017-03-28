@@ -8,13 +8,7 @@ sys.path.append(caffe_path)
 
 
 from fast_rcnn.config import cfg
-# from time import sleep
-#
-# print cfg.TEST.SCALES
-# sleep(10)
 import fast_rcnn.test
-# from fast_rcnn.test import *
-# im_detect
 from fast_rcnn.nms_wrapper import nms
 
 

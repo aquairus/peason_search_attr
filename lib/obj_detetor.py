@@ -5,8 +5,6 @@ import numpy as np
 import sys
 from imutils.object_detection import non_max_suppression
 from imutils import paths
-
-
 import imutils
 
 hog = cv2.HOGDescriptor()
