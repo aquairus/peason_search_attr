@@ -15,7 +15,7 @@ def parse_image(image_key):
     print len(image_list)
     for idx,img in enumerate(image_list):
         img_info=parse_one_pedestrian(img)
-        img_info["position"]=pick[idx].astype(int)
+        img_info["position"]=list(pick[idx].astype(int))
         pedestrian_attr.append(img_info)
     return pedestrian_attr
 
