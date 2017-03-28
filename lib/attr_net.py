@@ -1,11 +1,11 @@
 
 
-caffe_path ="/data/my_rap_network/caffe/python/"
+# caffe_path ="/data/my_rap_network/caffe/python/"
 model_path ="/data/my_rap_network/lib"
 
 import sys
 sys.path.append(model_path)
-sys.path.append(caffe_path)
+# sys.path.append(caffe_path)
 
 import caffe
 from wpal_net.recog import recognize_attr
