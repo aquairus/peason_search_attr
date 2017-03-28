@@ -162,7 +162,7 @@ def search_image():
     #              {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
     #
     #     pedestrian_attr.append(img_info)
-
+    print pedestrian_attr
     return  json.dumps(pedestrian_attr, ensure_ascii=False)
 
 
