@@ -1,11 +1,7 @@
+import lib.attr_net
 import lib.peason_layout
-from lib import attr_net
 from lib.obj_detetor import *
 
-##import db,threshold, get_attr_net,recognize_attr,get_all_nets
- # import parse_layout
-# import
-# attr_net=get_attr_net()
 attrs=[[0,1]]
 # [1,4],[4,7]]
 all_nets=attr_net.get_all_nets(attrs)
