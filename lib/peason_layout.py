@@ -1,5 +1,5 @@
 caffe_path ="/data/my_rap_network/lib"
-model_path ="/data/py-faster-rcnn"
+model_path ="/data/py-faster-rcnn/lib"
 
 import sys
 sys.path.append(model_path)
