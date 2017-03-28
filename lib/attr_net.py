@@ -33,7 +33,7 @@ def get_attr_net(start=0,end=3):
 
 
 #
-def get_all_nets(items):
+def get_all_nets(attrs):
     all_nets={}
     for attr in attrs:
         start=attr[0]
