@@ -1,7 +1,7 @@
 
 
-caffe_path ="/data/my_rap_network/lib"
-model_path ="/data/my_rap_network"
+caffe_path ="/data/my_rap_network/caffe/python/"
+model_path ="/data/my_rap_network/lib"
 
 import sys
 sys.path.append(model_path)
