@@ -17,7 +17,7 @@ def parse_image(image_key):
         img_info=parse_one_pedestrian(img)
         img_info["position"]=list(pick[idx].astype(int))
         pedestrian_attr.append(img_info)
-    draw_annotation(org_img,pedestrian_attr):
+    draw_annotation(org_img,pedestrian_attr)
 
     return pedestrian_attr
 
@@ -25,14 +25,17 @@ def parse_image(image_key):
 def draw_annotation(img,pedestrian_attr):
     for idx,info in enumerate(pedestrian_attr):
         (xA, yA, xB, yB)=info["position"]
-        cv2.rectangle(orig, (xA, yA), (xB, yB), (0, 0, 255), 2)
+        cv2.rectangle(img, (xA, yA), (xB, yB), (0, 0, 255), 2)
         for part in ["up","mid","leg"]:
-            if info[part]:
-                (xC, yC, xD, yD)=info[part]
-                cv2.rectangle(orig, (xC+xA, yC+yA), (xC+xA, yC+yA), (0, 255, 0), 2)
-        cv2.putText(orig,str(info["attr"]) , ( xA, yA ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 2 )    
+            if info['layout'][part]:
+                (xC, yC, xD, yD)=info['layout'][part]
+                cv2.rectangle(img, (xC+xA, yC+yA), (xD+xA, yD+yA), (0, 255, 0), 2)
+        for idx,line in enumerate(info["attr"].items()):
+            print line
 
-    cv2.imwrite('./data/result.jpg', orig)
+            cv2.putText(img,str(line) , ( xA, idx*35+yA ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 255, 0, 0 ), 2 )
+
+    cv2.imwrite('./data/result.jpg', img)
     # return 0
 
 def parse_one_pedestrian(img):
