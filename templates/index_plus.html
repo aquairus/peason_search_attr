@@ -212,14 +212,18 @@ $(function () {
           $("#files div").first().remove()
         }
         $.get(target_url, function(result){
+          var result_url="/data/result.jpg"
+          window.location.href=result_url
+
           $('#album').empty()
+
           result_list=JSON.parse(result)
 
           $(result_list).each(function(idx,ele){
             attr=ele
             $('#album').append(ele+"<br>");
           })
-          // $('#files').empty()
+
 
         });
 
