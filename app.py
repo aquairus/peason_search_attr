@@ -20,7 +20,7 @@ from werkzeug import secure_filename
 import cv2
 from lib.image_parser import parse_image
 from lib.upload_file import uploadfile
-
+from flask.ext.gzip import Gzip
 
 app = Flask(__name__)
 gzip = Gzip(app)
