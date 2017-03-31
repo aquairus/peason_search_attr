@@ -1,152 +1,167 @@
-<html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video-JS Demo</title>
+<!-- Force IE9 to use edge rendering mode and native HTML5 video player -->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+<script async="" src="//www.google-analytics.com/analytics.js"></script><script src="http://vjs.zencdn.net/c/video.js"></script><style></style><style type="text/css"></style>
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/font-awesome-4.2.0/css/font-awesome.min.css">
+<!--[if lt IE 9]>
+  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+<script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+<style>
+.vplayer {
+	margin: 20px 40px;
+	width: 480px;
+}
+#video1 {
+	-moz-box-shadow: 2px 2px 6px 3px #000;
+	-webkit-box-shadow: 1px 1px 4px 1px #000;
+	box-shadow: 1px 1px 4px 1px #000;
+}
+#video1:focus {
+	outline: none;
+}
+</style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Video-JS Demo</title>
+  ga('create', 'UA-19389139-1', 'auto');
+  ga('send', 'pageview');
 
-	<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-	<script src="http://vjs.zencdn.net/c/video.js"></script>
-	<style></style>
-	<style type="text/css"></style>
-	<!-- <link rel="stylesheet" href="/css/main.css">
-	<link rel="stylesheet" href="/font-awesome-4.2.0/css/font-awesome.min.css"> -->
+</script>
+<style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
 
-	<script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
-	<style>
-		.vplayer {
-			margin: 20px 40px;
-			width: 480px;
-		}
-
-		#video1 {
-			-moz-box-shadow: 2px 2px 6px 3px #000;
-			-webkit-box-shadow: 1px 1px 4px 1px #000;
-			box-shadow: 1px 1px 4px 1px #000;
-		}
-
-		#video1:focus {
-			outline: none;
-		}
-	</style>
-
-	<style id="style-1-cropbar-clipper">
-		/* Copyright 2014 Evernote Corporation. All rights reserved. */
-
-		.en-markup-crop-options {
-			top: 18px !important;
-			left: 50% !important;
-			margin-left: -100px !important;
-			width: 200px !important;
-			border: 2px rgba(255, 255, 255, .38) solid !important;
-			border-radius: 4px !important;
-		}
-
-		.en-markup-crop-options div div:first-of-type {
-			margin-left: 0px !important;
-		}
-	</style>
-</head>
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
 
 <body>
-	<div id="container">
-
-		<div id="main">
-
-			<article>
-
-
-				<figure class="vplayer">
-					<div id="video1" class="video-js vjs-default-skin vjs-paused" width="480" height="272" style="width: 480px; height: 272px;">
-						<video id="video1_html5_api" class="vjs-tech" preload="" data-setup="{}" src="http://butlerccwebdev.net/support/html5-video/media/bigbuckbunnytrailer-480p.mp4">
-             </video>
-						<div class="vjs-text-track-display"></div>
-						<div class="vjs-loading-spinner" style="display: none;">
-							<div class="ball1"></div>
-							<div class="ball2"></div>
-							<div class="ball3"></div>
-							<div class="ball4"></div>
-							<div class="ball5"></div>
-							<div class="ball6"></div>
-							<div class="ball7"></div>
-							<div class="ball8"></div>
-						</div>
-						<div class="vjs-big-play-button" tabindex="0" style="display: none;"><span></span></div>
-						<div class="vjs-controls vjs-fade-out">
-							<div class="vjs-play-control vjs-control  vjs-paused" tabindex="0">
-								<div><span class="vjs-control-text">Play</span></div>
-							</div>
-							<div class="vjs-fullscreen-control vjs-control " tabindex="0">
-								<div><span class="vjs-control-text">Fullscreen</span></div>
-							</div>
-							<div class="vjs-current-time vjs-time-controls vjs-control">
-								<div class="vjs-current-time-display">0:16</div>
-							</div>
-							<div class="vjs-time-divider">
-								<div><span>/</span></div>
-							</div>
-							<div class="vjs-duration vjs-time-controls vjs-control">
-								<div class="vjs-duration-display">1:25</div>
-							</div>
-							<div class="vjs-remaining-time vjs-time-controls vjs-control">
-								<div class="vjs-remaining-time-display">-1:09</div>
-							</div>
-							<div class="vjs-progress-control vjs-control">
-								<div aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-progress-holder">
-									<div class="vjs-load-progress" style="width: 100%;"><span class="vjs-control-text">Loaded: 0%</span></div>
-									<div class="vjs-play-progress" style="width: 20.28%;"><span class="vjs-control-text">Progress: 0%</span></div>
-									<div class="vjs-seek-handle" style="left: 17.97%;"><span class="vjs-control-text">00:00</span></div>
-								</div>
-							</div>
-							<div class="vjs-volume-control vjs-control">
-								<div aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-volume-bar">
-									<div class="vjs-volume-level" style="width: 90.71%;"><span class="vjs-control-text"></span></div>
-									<div class="vjs-volume-handle" style="left: 81.43%;"><span class="vjs-control-text"></span></div>
-								</div>
-							</div>
-							<div class="vjs-mute-control vjs-control" tabindex="0">
-								<div><span class="vjs-control-text">Mute</span></div>
-							</div>
-							<div class="vjs-subtitles-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
-								<div><span class="vjs-control-text">Subtitles</span></div>
-								<ul class="vjs-menu">
-									<li class="vjs-menu-title">Subtitles</li>
-									<li class="vjs-menu-item" tabindex="0">Off</li>
-								</ul>
-							</div>
-							<div class="vjs-captions-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
-								<div><span class="vjs-control-text">Captions</span></div>
-								<ul class="vjs-menu">
-									<li class="vjs-menu-title">Captions</li>
-									<li class="vjs-menu-item" tabindex="0">Off</li>
-								</ul>
-							</div>
-							<div class="vjs-chapters-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
-								<div><span class="vjs-control-text">Chapters</span></div>
-								<ul class="vjs-menu">
-									<li class="vjs-menu-title">Chapters</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</figure>
+<div id="container">
+  <header class="clearfix page-header">
+    <div id="branding">
+      <h1><a href="/index.php">ButlerCC Webhosting</a></h1>
+      <p>Free Webhosting for ButlerCC WebDev Students</p>
+    </div>
+  </header>
+  <div id="main">
+    <p><a href="/index.php">Home</a> &gt; <a href="/support/index.php">Tutorials and Resources</a> &gt; <a href="/support/html5-video/index.php">HTML5 Video and Audio</a> &gt; VideoJS HTML5 Video Player</p>
+    <article>
+      <header>
+        <h2>VideoJS HTML5 Video Player Demo</h2>
+        <p>By B Lingafelter&nbsp;&nbsp;&nbsp;<i class="fa fa-calendar"></i>&nbsp;
+          <time datetime="2013-04-30">Apr 30, 2013</time>
+          &nbsp;&nbsp;&nbsp; <i class="fa fa-tags"></i>&nbsp;HTML5 </p>
+      </header>
+      <p>VideoJS is an open-source HTML5 video player that uses JavaScript to add a consistent set of player controls, backward compatibility for some older browsers that do not support HTML5 (like Internet Explorer 7 and 8), and even a Flash fallback for other browsers. </p>
+      <figure class="vplayer">
+        <div id="video1" class="video-js vjs-default-skin vjs-paused" width="480" height="272" style="width: 480px; height: 272px;"><video id="video1_html5_api" class="vjs-tech" preload="" data-setup="{}" src="/static/video/ruc_2.mp4">
 
 
 
+        </video><img class="vjs-poster" src="/support/html5-video/media/bigbuckbunny-poster.jpg" tabindex="-1"><div class="vjs-text-track-display"></div><div class="vjs-loading-spinner" style="display: none;"><div class="ball1"></div><div class="ball2"></div><div class="ball3"></div><div class="ball4"></div><div class="ball5"></div><div class="ball6"></div><div class="ball7"></div><div class="ball8"></div></div><div class="vjs-big-play-button" tabindex="0"><span></span></div><div class="vjs-controls"><div class="vjs-play-control vjs-control " tabindex="0"><div><span class="vjs-control-text">Play</span></div></div><div class="vjs-fullscreen-control vjs-control " tabindex="0"><div><span class="vjs-control-text">Fullscreen</span></div></div><div class="vjs-current-time vjs-time-controls vjs-control"><div class="vjs-current-time-display">0:00</div></div><div class="vjs-time-divider"><div><span>/</span></div></div><div class="vjs-duration vjs-time-controls vjs-control"><div class="vjs-duration-display">0:00</div></div><div class="vjs-remaining-time vjs-time-controls vjs-control"><div class="vjs-remaining-time-display">-0:00</div></div><div class="vjs-progress-control vjs-control"><div aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-progress-holder"><div class="vjs-load-progress" style="width: 100%;"><span class="vjs-control-text">Loaded: 0%</span></div><div class="vjs-play-progress" style="width: 0%;"><span class="vjs-control-text">Progress: 0%</span></div><div class="vjs-seek-handle" style="left: 0%;"><span class="vjs-control-text">00:00</span></div></div></div><div class="vjs-volume-control vjs-control"><div aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-volume-bar"><div class="vjs-volume-level" style="width: 100%;"><span class="vjs-control-text"></span></div><div class="vjs-volume-handle" style="left: 100%;"><span class="vjs-control-text"></span></div></div></div><div class="vjs-mute-control vjs-control" tabindex="0"><div><span class="vjs-control-text">Mute</span></div></div><div class="vjs-subtitles-button vjs-menu-button vjs-control " tabindex="0" style="display: none;"><div><span class="vjs-control-text">Subtitles</span></div><ul class="vjs-menu"><li class="vjs-menu-title">Subtitles</li><li class="vjs-menu-item" tabindex="0">Off</li></ul></div><div class="vjs-captions-button vjs-menu-button vjs-control " tabindex="0" style="display: none;"><div><span class="vjs-control-text">Captions</span></div><ul class="vjs-menu"><li class="vjs-menu-title">Captions</li><li class="vjs-menu-item" tabindex="0">Off</li></ul></div><div class="vjs-chapters-button vjs-menu-button vjs-control " tabindex="0" style="display: none;"><div><span class="vjs-control-text">Chapters</span></div><ul class="vjs-menu"><li class="vjs-menu-title">Chapters</li></ul></div></div></div>
+        <figcaption><strong>Attribution</strong>: <em>Big Buck Bunny</em> trailer from the Peach open movie project licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a> license. Copyright © 2008, Blender Foundation <a href="http://www.bigbuckbunny.org/">http://www.bigbuckbunny.org/</a>.<br>
+          <!-- Download links provided for devices that can't play video in the browser. -->
+          <strong>Unable to play video? Download links:</strong> <a href="/support/html5-video/media/bigbuckbunnytrailer-480p.mp4">MP4</a>, <a href="/support/html5-video/media/bigbuckbunnytrailer-480p.webm">WebM</a>, <a href="/support/html5-video/media/bigbuckbunnytrailer-480p.ogg">Ogg</a> </figcaption>
+      </figure>
+      <!-- End VideoJS -->
+      <h3>The Markup:</h3>
+      <h4>Step 1: Use the HTML5 doctype to serve the page as HTML5</h4>
+      <p>Convert the page to HTML5. Most of the syntax rules still apply except for empty elements (like &lt;img&gt;, &lt;br&gt;, and &lt;meta&gt;); they no longer need to be closed with a "space" and "/".</p>
+      <figure>
+        <div class="snippets">
+          <pre><code>&lt;!DOCTYPE HTML&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Page title goes here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;!-- All markup elements go in the body as usual&nbsp;--&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+      </figure>
+      <h4>Step 2: Add one &lt;video&gt; element and a &lt;source&gt; element for each of the three required video formats</h4>
+      <p>The &lt;video&gt; element shown below, includes several useful attributes: <strong>controls</strong> adds the native video control elements, like play/pause, progress bar, and volume; <strong>preload</strong> allows the video to begin downloading when the page loads; <strong>poster</strong> specifies the path and filename of the image to be displayed before the video plays.</p>
+      <p>The &lt;source&gt; element specifies the path and filename of the video and its container type. Because the current browsers do  not all  play the same video formats, you will need to create and specify each of these video formats: .mp4, .webM, and .ogg. Refer to Video Formats below for more information.</p>
+      <p>You are not required to nest the &lt;video&gt; element inside a &lt;div&gt;, but doing so increases your ability to style the video player.</p>
+      <figure>
+        <div class="snippets">
+          <pre><code>&lt;div class="vplayer"&gt;
+<strong>&lt;video id="video1" controls preload width="480" height="272" poster="media/bigbuckbunny-poster.jpg"&gt;
+  &lt;source src="media/bigbuckbunnytrailer-480p.mp4" type="video/mp4"&gt;
+  &lt;source src="media/bigbuckbunnytrailer-480p.webm" type="video/webm"&gt;
+  &lt;source src="media/bigbuckbunnytrailer-480p.ogg" type="video/ogg"&gt;
+&lt;/video&gt;</strong>
+&lt;/div&gt;</code></pre>
+        </div>
+      </figure>
+      <h4>Step 3: Include the VideoJS stylesheet and script files</h4>
+      <p>Add the VideoJS player by including the hosted video-js.css and video.js files in the &lt;head&gt; of the page (directly below &lt;title&gt; element). Your website's linked stylesheet should come last.</p>
+      <figure>
+        <div class="snippets">
+          <pre><code>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Page title goes here&lt;/title&gt;
+  <strong>&lt;link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet"&gt;
+  &lt;script src="http://vjs.zencdn.net/c/video.js"&gt;&lt;/script&gt;
+  </strong>/* Link to  site's stylesheet */
+  &lt;link href="css/styles.css" rel="stylesheet"&gt;
+&lt;/head&gt;</code></pre>
+        </div>
+      </figure>
+      <h4>Step 4: (Optional) Add a fallback option for older browsers</h4>
+      <p>For older browsers that do not support HTML5 elements, like Internet Explorer 7 and 8, include the html5media.js script in the &lt;head&gt; of the page that contains the &lt;video&gt; element. For more information about this script, refer to <a href="https://github.com/etianen/html5media">https://github.com/etianen/html5media</a>.</p>
+      <figure>
+        <div class="snippets">
+          <pre><code>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Page title goes here&lt;/title&gt;
+  &lt;link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet"&gt;
+  &lt;script src="http://vjs.zencdn.net/c/video.js"&gt;&lt;/script&gt;
+  /* Link to  site's stylesheet */
+  &lt;link href="css/styles.css" rel="stylesheet"&gt;
+  <strong>&lt;script src="http://api.html5media.info/1.1.5/html5media.min.js"&gt;&lt;/script&gt;</strong>
+&lt;/head&gt;</code></pre>
+        </div>
+      </figure>
+      <h3>Related Links</h3>
+      <ul class="resources">
+        <li><a href="http://diveinto.html5doctor.com/video.html">Dive Into HTML5 - Video</a> from the online version of Mark Pilgrim's book, <em>HTML5: Up and Running</em>.</li>
+        <li>John Dyer's <a href="http://mediaelementjs.com/">MediaElement.js</a> jQuery plugin adds a consistent appearance and set of video player controls for all browsers, backward compatibility for some older browsers, and even provides a flash or silverlight fallback for browsers that have javascript turned off.</li>
+        <li><a href="http://videojs.com/">VideoJS</a> <a href="http://videojs.com/" target="_blank"></a> is an HTML5 Video Player that adds consistent set of player controls, backward compatibility for some older browsers, and a flash fallback for others.</li>
+        <li><a href="http://jplayer.org/">jPlayer</a> is a jQuery HTML5 Audio &amp; Video Player, and the newest version looks extremely promising although I haven't used it any projects personally.  Be sure to grab a copy of the <a href="http://jplayer.org/download/">demos</a> to assist you in correct setup.</li>
+      </ul>
+      <footer>
+        <div class="disclaimers clearfix">
+          <p><small><strong>Disclaimers:</strong> <a href="http://www.butlercc.edu/">Butler Community College</a> is an “Equal Opportunity Employer/Program” and “Auxiliary  Aids and Services are available upon request.”</small></p>
+          <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" alt="Creative Commons License" class=" cclicense pull-left"></a> <small>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</small></p>
+        </div>
+      </footer>
+    </article>
+  </div>
+  <footer class="page-footer">
+    <p>Generously Provided by<br>
+      <a href="http://www.butlercc.edu/"><img src="/images/Butler_Horiz_206a.png" width="206" height="64" alt="Butler Community College"></a></p>
+  </footer>
+</div>
+<!--! end of #container -->
 
 
-
-
-
-
-
-			</article>
-		</div>
-
-	</div>
-
-
-</body>
-
-</html>
+</body></html>
