@@ -3,17 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Video-JS Demo</title>
-	<!-- Force IE9 to use edge rendering mode and native HTML5 video player -->
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<title>Page title goes here</title>
 	<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-	<!-- <script async="" src="//www.google-analytics.com/analytics.js"></script><script src="http://vjs.zencdn.net/c/video.js"></script><style></style><style type="text/css"></style> -->
-	<link rel="stylesheet" href="static/css/main.css">
-	<!-- <link rel="stylesheet" href="/font-awesome-4.2.0/css/font-awesome.min.css"> -->
-	<!--[if lt IE 9]>
-  		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<script src="http://vjs.zencdn.net/c/video.js"></script>
+	<!-- /* Link to  site's stylesheet */ -->
+	<link href="css/styles.css" rel="stylesheet">
 	<script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+
 	<style>
 		.vplayer {
 			margin: 20px 40px;
@@ -51,69 +47,80 @@
 
 <body>
 
-				<figure class="vplayer">
-					<div id="video1" class="video-js vjs-default-skin vjs-paused" width="480" height="272" style="width: 480px; height: 272px;">
-						<video id="video1_html5_api" class="vjs-tech" preload="" data-setup="{}" src="http://butlerccwebdev.net/support/html5-video/media/bigbuckbunnytrailer-480p.mp4">
+	<figure class="vplayer">
+		<div id="video1" class="video-js vjs-default-skin vjs-paused" width="480" height="272" style="width: 480px; height: 272px;">
+			<video id="video1_html5_api" class="vjs-tech" preload="" data-setup="{}" src="http://butlerccwebdev.net/support/html5-video/media/bigbuckbunnytrailer-480p.mp4">
 						</video>
-						<div class="vjs-big-play-button" tabindex="0"><span></span></div>
-						<div class="vjs-controls">
-							<div class="vjs-play-control vjs-control " tabindex="0">
-								<div><span class="vjs-control-text">Play</span></div>
-							</div>
-							<div class="vjs-fullscreen-control vjs-control " tabindex="0">
-								<div><span class="vjs-control-text">Fullscreen</span></div>
-							</div>
-							<div class="vjs-current-time vjs-time-controls vjs-control">
-								<div class="vjs-current-time-display">0:00</div>
-							</div>
-							<div class="vjs-time-divider">
-								<div><span>/</span></div>
-							</div>
-							<div class="vjs-duration vjs-time-controls vjs-control">
-								<div class="vjs-duration-display">0:00</div>
-							</div>
-							<div class="vjs-remaining-time vjs-time-controls vjs-control">
-								<div class="vjs-remaining-time-display">-0:00</div>
-							</div>
-							<div class="vjs-progress-control vjs-control">
-								<div aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-progress-holder">
-									<div class="vjs-load-progress" style="width: 100%;"><span class="vjs-control-text">Loaded: 0%</span></div>
-									<div class="vjs-play-progress" style="width: 0%;"><span class="vjs-control-text">Progress: 0%</span></div>
-									<div class="vjs-seek-handle" style="left: 0%;"><span class="vjs-control-text">00:00</span></div>
-								</div>
-							</div>
-							<div class="vjs-volume-control vjs-control">
-								<div aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-volume-bar">
-									<div class="vjs-volume-level" style="width: 100%;"><span class="vjs-control-text"></span></div>
-									<div class="vjs-volume-handle" style="left: 100%;"><span class="vjs-control-text"></span></div>
-								</div>
-							</div>
-							<div class="vjs-mute-control vjs-control" tabindex="0">
-								<div><span class="vjs-control-text">Mute</span></div>
-							</div>
-							<div class="vjs-subtitles-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
-								<div><span class="vjs-control-text">Subtitles</span></div>
-								<ul class="vjs-menu">
-									<li class="vjs-menu-title">Subtitles</li>
-									<li class="vjs-menu-item" tabindex="0">Off</li>
-								</ul>
-							</div>
-							<div class="vjs-captions-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
-								<div><span class="vjs-control-text">Captions</span></div>
-								<ul class="vjs-menu">
-									<li class="vjs-menu-title">Captions</li>
-									<li class="vjs-menu-item" tabindex="0">Off</li>
-								</ul>
-							</div>
-							<div class="vjs-chapters-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
-								<div><span class="vjs-control-text">Chapters</span></div>
-								<ul class="vjs-menu">
-									<li class="vjs-menu-title">Chapters</li>
-								</ul>
-							</div>
-						</div>
+
+			<div class="vjs-loading-spinner" style="display: block;">
+				<div class="ball1"></div>
+				<div class="ball2"></div>
+				<div class="ball3"></div>
+				<div class="ball4"></div>
+				<div class="ball5"></div>
+				<div class="ball6"></div>
+				<div class="ball7"></div>
+				<div class="ball8"></div>
+			</div>
+			<div class="vjs-big-play-button" tabindex="0"><span></span></div>
+			<div class="vjs-controls">
+				<div class="vjs-play-control vjs-control " tabindex="0">
+					<div><span class="vjs-control-text">Play</span></div>
+				</div>
+				<div class="vjs-fullscreen-control vjs-control " tabindex="0">
+					<div><span class="vjs-control-text">Fullscreen</span></div>
+				</div>
+				<div class="vjs-current-time vjs-time-controls vjs-control">
+					<div class="vjs-current-time-display">0:00</div>
+				</div>
+				<div class="vjs-time-divider">
+					<div><span>/</span></div>
+				</div>
+				<div class="vjs-duration vjs-time-controls vjs-control">
+					<div class="vjs-duration-display">0:00</div>
+				</div>
+				<div class="vjs-remaining-time vjs-time-controls vjs-control">
+					<div class="vjs-remaining-time-display">-0:00</div>
+				</div>
+				<div class="vjs-progress-control vjs-control">
+					<div aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-progress-holder">
+						<div class="vjs-load-progress" style="width: 100%;"><span class="vjs-control-text">Loaded: 0%</span></div>
+						<div class="vjs-play-progress" style="width: 0%;"><span class="vjs-control-text">Progress: 0%</span></div>
+						<div class="vjs-seek-handle" style="left: 0%;"><span class="vjs-control-text">00:00</span></div>
 					</div>
-				</figure>
+				</div>
+				<div class="vjs-volume-control vjs-control">
+					<div aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-volume-bar">
+						<div class="vjs-volume-level" style="width: 100%;"><span class="vjs-control-text"></span></div>
+						<div class="vjs-volume-handle" style="left: 100%;"><span class="vjs-control-text"></span></div>
+					</div>
+				</div>
+				<div class="vjs-mute-control vjs-control" tabindex="0">
+					<div><span class="vjs-control-text">Mute</span></div>
+				</div>
+				<div class="vjs-subtitles-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
+					<div><span class="vjs-control-text">Subtitles</span></div>
+					<ul class="vjs-menu">
+						<li class="vjs-menu-title">Subtitles</li>
+						<li class="vjs-menu-item" tabindex="0">Off</li>
+					</ul>
+				</div>
+				<div class="vjs-captions-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
+					<div><span class="vjs-control-text">Captions</span></div>
+					<ul class="vjs-menu">
+						<li class="vjs-menu-title">Captions</li>
+						<li class="vjs-menu-item" tabindex="0">Off</li>
+					</ul>
+				</div>
+				<div class="vjs-chapters-button vjs-menu-button vjs-control " tabindex="0" style="display: none;">
+					<div><span class="vjs-control-text">Chapters</span></div>
+					<ul class="vjs-menu">
+						<li class="vjs-menu-title">Chapters</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</figure>
 
 </body>
 
