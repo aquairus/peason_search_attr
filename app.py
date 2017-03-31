@@ -23,7 +23,7 @@ from lib.upload_file import uploadfile
 from flask.ext.gzip import Gzip
 
 app = Flask(__name__)
-gzip = Gzip(app)
+#gzip = Gzip(app)
 
 
 app.config['SECRET_KEY'] = 'hard to guess string'
