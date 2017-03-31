@@ -171,6 +171,10 @@ def index():
     return render_template('index_plus.html')
 
 
+@app.route('/video_demo', methods=['GET', 'POST'])
+def video_demo():
+    return render_template('video_demo.html')
+
 
 
 if __name__ == '__main__':

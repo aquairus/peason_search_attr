@@ -29,7 +29,7 @@ def get_peason_bbox(image):
 
 def get_pedestrian_image(image_key):
     image = cv2.imread(image_key)
-    scale=400.0/image.shape[1]
+    scale=600.0/image.shape[1]
     image = imutils.resize(image, width=min(400, image.shape[1]))
     return   image
 
