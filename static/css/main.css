@@ -1,0 +1,268 @@
+@charset "utf-8";
+/* Main CSS Document */
+body {
+	background-color: #fff;
+	color: #444;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	line-height: 1.5;
+}
+/* Newest CLEARFIX http://css-tricks.com/snippets/css/clear-fix/ */
+.clearfix:after, .group:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+/* Fluid images and media */
+img, object, embed, iframe {
+	max-width: 100%;
+}
+/* Links */
+a, a:link, a:visited {
+	color:#43125F;
+}
+a:hover, a:active {
+	color:#333;
+}
+/* Layout Styles */
+#container {
+	width: 98%;
+	margin-right: auto;
+	margin-left: auto;
+}
+#main {
+	max-width: 60em;
+	margin-right: auto;
+	margin-left: auto;
+}
+#branding {
+	float: left;
+	width: 22em;
+}
+.page-header {
+	border-bottom: 3px solid #43125F;
+}
+.page-footer {
+	border-top: 3px solid #43125F;
+}
+/* Member Login styles */
+#stlogin {
+	float: right;
+	width: 10.75em;
+	margin-bottom: 1em;
+	background-color: #4A176C;
+	color: #FFF;
+	-moz-box-shadow: 1px 1px 4px #000;
+	-webkit-box-shadow: 1px 1px 4px #000;
+	box-shadow: 1px 1px 4px #000;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+#stlogin p {
+	font-size: 0.75em;
+	padding-left: 1em;
+	margin-bottom: 6px;
+}
+#stlogin h2 {
+	color: #FFF;
+	font-size: 1em;
+	padding-top: 0.5em;
+	text-align: center;
+}
+#stlogin a:link, #stlogin a:visited {
+	color: #fff;
+}
+#stlogin a:hover {
+	text-decoration: underline;
+}
+#stlogin label {
+	display: block;
+	font-size: 1.2em;
+}
+input[type=submit] {
+	background-color: #B99C6B;
+	color: #43125F;
+	font-weight: bold;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+input[type=text], input[type=password] {
+	width: 10.5em;
+}
+.fail {
+	background-color: #fff;
+	color: #f00;
+	margin-left: 1em;
+}
+/* Typography */
+abbr {border-bottom: dotted 1px #444;}
+article>header>p {
+	border-bottom: 0.09em solid #e5e5e5;
+	font-size: 0.875em;
+	padding-bottom: 0.5em;
+}
+dd {margin-bottom: 1em;}
+h1, h2, h3, h4 {
+	margin-bottom: .25em;
+	margin-top: 1em;
+}
+h1+p, h2+p, h3+p {
+	margin-top: 0;
+}
+h1, h2 {
+	color: #43125F;
+	font-size: 2em;
+}
+h3 {font-size: 1.5em;}
+h4 {font-size: 1.125em;}
+header>h1 {
+	margin-top: 0;
+	font-size: 1.8em;
+}
+header a:link, header a:visited {
+	text-decoration: none;
+}
+.page-footer {
+	margin-top: 1em;
+	text-align: center;
+}
+.page-footer img {
+	border: none;
+}
+article img {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+}
+article ol li ol {
+	list-style: lower-alpha;
+}
+.resources li {
+	margin-bottom: 0.5em;
+}
+.gold {
+	color: #B99C6B;
+}
+.disclaimers {border-top: 0.07em solid #e5e5e5;}
+.disclaimers>p {line-height: 1em; margin: 0.5em 1.5em;}
+.cclicense {border: none; margin: 0 0.5em 0 0;}
+.pull-left {float: left;}
+.pull-right {float: right;}
+/* Code snippets, figures, notes and related styles */
+code, .code {
+	color: #000;
+	font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size: 1.2em;
+}
+code>strong, .code>strong {
+	font-weight: bold;
+}
+figure {
+	margin: 1em;
+}
+figcaption {
+	font-size: 0.8125em;
+	font-style: italic;
+	line-height: 1.3em;
+	padding-top: 0.5em;
+}
+.notes {
+	background:#efefef;
+	border:1px solid #000;
+	padding: 0 1.0em;
+	margin: 0 1.5em;
+}
+.snippets {
+	background-color: #e0e0e0;
+	overflow:auto;
+	padding: 0.5em 1em;
+}
+/* Table styles */
+table {
+	margin: 1em;
+	border: 3px solid #000;
+	caption-side: bottom;
+	border-collapse: collapse;
+}
+td, th {
+	border: dotted 1px #333;
+	padding: 0.5em 1em;
+}
+th {
+	background-color: #4A176C;
+	color: #fff;
+}
+caption {
+	font-style: italic;
+	padding-top: 0.5em;
+}
+tr:nth-child(odd) {
+	background-color: #e0e0e0;
+}
+/* Specialty Classes */
+
+/* Print Styles */
+@media print {
+* {
+	color: #333 !important;
+	text-shadow: none;
+}
+body {
+	background-color: #fff;
+	color: #333;
+	font-size: 10pt;
+	text-shadow: none;
+}
+#container {
+	width: 100%;
+	margin-right: 0;
+	margin-left: 0;
+}
+#main {
+	width: 100%;
+	margin-right: 0;
+	margin-left: 0;
+}
+#branding {
+	float: left;
+	width: 100%;
+}
+#stlogin {
+	display:none;
+}
+a, a:visited {
+	color: #333 !important;
+	text-decoration: underline;
+}
+code, .code {
+	font-size: 10pt;
+}
+article a[href^="http://"]:after, article a[href^="https://"]:after {
+	content: " (" attr(href) ")";
+}
+article a[href^="/"]:after {
+	content: " (http://butlerccwebdev.net" attr(href) ")";
+}
+abbr:after {
+	content: " (" attr(title) ")";
+}
+.ir a:after {
+	content: "";
+}  /* Don't show links for images */
+figure, pre, blockquote {
+	page-break-inside: avoid;
+}
+img {
+	page-break-inside: avoid;
+}
+p, h2, h3 {
+	orphans: 2;
+	widows: 2;
+}
+h2, h3 {
+	page-break-after: avoid;
+}
+}
