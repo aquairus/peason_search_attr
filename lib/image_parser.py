@@ -2,7 +2,7 @@ import lib.attr_net
 import lib.peason_layout
 from lib.obj_detetor import *
 
-attrs=[[0,1],[24,30],[51,54],[63,75],[75,83],[83,92]]
+attrs=[[0,1],[24,30],[51,55],[63,75],[75,83],[83,92]]
 # [1,4],[4,7]]
 all_nets=lib.attr_net.get_all_nets(attrs)
 
@@ -34,6 +34,9 @@ def draw_annotation(img,pedestrian_attr):
             print line
 
             cv2.putText(img,str(line) , ( xA, idx*35+yA ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 1 )
+
+     img = cv2.copyMakeBorder(img, 0, 100, 0, 0,
+        cv2.BORDER_REPLICATE, value=(0, 0, 0))
 
     cv2.imwrite('./data/result.jpg', img)
     # return 0
