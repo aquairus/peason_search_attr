@@ -182,6 +182,12 @@ def video_demo():
 def another_demo():
     return render_template('another_demo.html')
 
+from flask import send_from_directory
+@app.route('/video/<filename>')
+def get_file(filename):
+    return send_from_directory("/data/peason_search_attr/static/video",filename)
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8888)
