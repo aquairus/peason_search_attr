@@ -35,8 +35,7 @@ def draw_annotation(img,pedestrian_attr):
 
             cv2.putText(img,str(line) , ( xA, idx*35+yA ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 1 )
 
-     img = cv2.copyMakeBorder(img, 0, 100, 0, 0,
-        cv2.BORDER_REPLICATE, value=(0, 0, 0))
+    img = cv2.copyMakeBorder(img, 0, 100, 0, 0,cv2.BORDER_REPLICATE, value=(0, 0, 0))
 
     cv2.imwrite('./data/result.jpg', img)
     # return 0
