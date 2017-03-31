@@ -34,7 +34,7 @@ def draw_annotation(img,pedestrian_attr):
         for idx,line in enumerate(info["attr"].items()):
             print line
 
-            cv2.putText(img,str(line) , ( xA, idx*25+yB ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 1 )
+            cv2.putText(img,str(line) , ( xA, idx*25+yB+50 ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 1 )
 
 
 
