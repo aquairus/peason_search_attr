@@ -3,26 +3,33 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Page title goes here</title>
-    <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/c/video.js"></script>
-    <!-- /* Link to  site's stylesheet */ -->
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/5.11/video.min.js"></script>
     <script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
 </head>
 
 <body>
 
-    <div class="vplayer">
-
-        <video id="video2" controls preload width="480" height="272">
-          <source src="/video/ruc_3.mp4" type="video/mp4">
-        </video>
-
-    </div>
+  <video
+    id="my-player"
+    class="video-js"
+    controls
+    preload="auto"
+    poster="//vjs.zencdn.net/v/oceans.png"
+    data-setup='{}'>
+  <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+  <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
+  <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source>
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="http://videojs.com/html5-video-support/" target="_blank">
+      supports HTML5 video
+    </a>
+  </p>
+</video>
 
 </body>
-<!-- <script> var myplayer = _V_("video2");
-</script> -->
+<script> var player = videojs('my-player');</script>
 
 </html>
