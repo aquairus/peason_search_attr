@@ -1,26 +1,64 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="utf-8">
-  <title>Page title goes here</title>
-  <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-  <script src="http://vjs.zencdn.net/c/video.js"></script>
-  <!-- /* Link to  site's stylesheet */ -->
-  <link href="css/styles.css" rel="stylesheet">
-  <script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Video-JS Demo</title>
+
+	<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+	<script src="http://vjs.zencdn.net/c/video.js"></script>
+	<style></style>
+	<style type="text/css"></style>
+	<!-- <link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/font-awesome-4.2.0/css/font-awesome.min.css"> -->
+
+	<script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+	<style>
+		.vplayer {
+			margin: 20px 40px;
+			width: 480px;
+		}
+
+		#video1 {
+			-moz-box-shadow: 2px 2px 6px 3px #000;
+			-webkit-box-shadow: 1px 1px 4px 1px #000;
+			box-shadow: 1px 1px 4px 1px #000;
+		}
+
+		#video1:focus {
+			outline: none;
+		}
+	</style>
+
+	<style id="style-1-cropbar-clipper">
+		/* Copyright 2014 Evernote Corporation. All rights reserved. */
+
+		.en-markup-crop-options {
+			top: 18px !important;
+			left: 50% !important;
+			margin-left: -100px !important;
+			width: 200px !important;
+			border: 2px rgba(255, 255, 255, .38) solid !important;
+			border-radius: 4px !important;
+		}
+
+		.en-markup-crop-options div div:first-of-type {
+			margin-left: 0px !important;
+		}
+	</style>
 </head>
 
 <body>
+	<div id="container">
 
-  <div class="vplayer">
-<!-- <video id="video1" controls preload width="480" height="272">
-  <source src="http://butlerccwebdev.net/support/html5-video/media/bigbuckbunnytrailer-480p.mp4" type="video/mp4">
-</video> -->
+		<div id="main">
+
+			<article>
 
 
 				<figure class="vplayer">
 					<div id="video1" class="video-js vjs-default-skin vjs-paused" width="480" height="272" style="width: 480px; height: 272px;">
-						<video id="video1_html5_api" class="vjs-tech" preload="" data-setup="{}" src="static/video/ruc_2.mp4">
+						<video id="video1_html5_api" class="vjs-tech" preload="" data-setup="{}" src="http://butlerccwebdev.net/support/html5-video/media/bigbuckbunnytrailer-480p.mp4">
              </video>
 						<div class="vjs-text-track-display"></div>
 						<div class="vjs-loading-spinner" style="display: none;">
@@ -91,15 +129,24 @@
 							</div>
 						</div>
 					</div>
-<!--
-<video id="video2" controls preload width="480" height="272">
-  <source src="static/video/ruc_2.mp4" type="video/mp4">
-</video> -->
-</div>
+
+				</figure>
 
 
-   <!-- All markup elements go in the body as usual -->
+
+
+
+
+
+
+
+
+			</article>
+		</div>
+
+	</div>
+
+
 </body>
-<!-- <script> var myplayer = _V_("video2");
-</script> -->
+
 </html>
