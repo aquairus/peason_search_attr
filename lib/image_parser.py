@@ -23,6 +23,7 @@ def parse_image(image_key):
 
 
 def draw_annotation(img,pedestrian_attr):
+    img = cv2.copyMakeBorder(img, 0, 300, 0, 0,cv2.BORDER_CONSTANT, value=(255, 255, 255))
     for idx,info in enumerate(pedestrian_attr):
         (xA, yA, xB, yB)=info["position"]
         cv2.rectangle(img, (xA, yA), (xB, yB), (0, 0, 255), 2)
@@ -33,9 +34,9 @@ def draw_annotation(img,pedestrian_attr):
         for idx,line in enumerate(info["attr"].items()):
             print line
 
-            cv2.putText(img,str(line) , ( xA, idx*35+yA ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 1 )
+            cv2.putText(img,str(line) , ( xA, idx*25+yB ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 1 )
 
-    img = cv2.copyMakeBorder(img, 0, 100, 0, 0,cv2.BORDER_REPLICATE, value=(0, 0, 0))
+
 
     cv2.imwrite('./data/result.jpg', img)
     # return 0
