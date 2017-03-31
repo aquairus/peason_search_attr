@@ -184,7 +184,7 @@ def another_demo():
 
 from flask import send_from_directory
 @app.route('/video/<filename>')
-def get_file(filename):
+def get_video(filename):
     return send_from_directory("/data/peason_search_attr/static/video",filename)
 
 
