@@ -2,7 +2,7 @@ import lib.attr_net
 import lib.peason_layout
 from lib.obj_detetor import *
 
-attrs=[[0,1],[24,30],[63,75],[75,83],[83,92]]
+attrs=[[0,1],[24,30],[51,54],[63,75],[75,83],[83,92]]
 # [1,4],[4,7]]
 all_nets=lib.attr_net.get_all_nets(attrs)
 
