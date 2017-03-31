@@ -23,6 +23,8 @@ from lib.upload_file import uploadfile
 
 
 app = Flask(__name__)
+gzip = Gzip(app)
+
 
 app.config['SECRET_KEY'] = 'hard to guess string'
 app.config['UPLOAD_FOLDER'] = 'data/'
