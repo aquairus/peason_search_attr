@@ -178,6 +178,10 @@ def video_demo():
     return render_template('video_demo.html')
 
 
+@app.route('/another_demo', methods=['GET', 'POST'])
+def video_demo():
+    return render_template('another_demo.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8888)
