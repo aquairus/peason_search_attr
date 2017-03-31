@@ -179,7 +179,7 @@ def video_demo():
 
 
 @app.route('/another_demo', methods=['GET', 'POST'])
-def video_demo():
+def another_demo():
     return render_template('another_demo.html')
 
 
