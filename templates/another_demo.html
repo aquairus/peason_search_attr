@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="static/css/style.css">
+    <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/5.11/video.min.js"></script>
+    <script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
+<
 
 </head>
 
@@ -26,21 +30,21 @@
         <div class="row">
 
             <div class="col-md-4" id="col-1">
-                <h2>report</h2>
+                <h2>video</h2>
 
                 <table class="table">
 
-                    <tbody>
+                  <video id="my-player" class="video-js" controls preload="auto" poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'>
+                    <source src="/video/ruc_3.mp4" type="video/mp4"></source>
 
-                        <tr>
-                            <td>uid</td>
-                            <td>name</td>
-                            <td>age</td>
-                            <td>class</td>
-                            <td>score</td>
-                        </tr>
-
-                    </tbody>
+                    <p class="vjs-no-js">
+                      To view this video please enable JavaScript, and consider upgrading to a
+                      web browser that
+                      <a href="http://videojs.com/html5-video-support/" target="_blank">
+                        supports HTML5 video
+                      </a>
+                    </p>
+                  </video>
 
                 </table>
 
@@ -48,7 +52,7 @@
 
             <div class="col-md-4" id="col-2">
 
-                <h2>button</h2>
+                <h2>Search</h2>
                 <div class="sort">
                     <div class="btn-group">
                         <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -68,7 +72,7 @@
                     </div>
                 </div>
                 <hr>
-                <h3>insert:</h3>
+                <h3>result</h3>
                 <p id="last_insert"></p>
                 <hr>
                 <button type="button" class="btn btn-danger" id="delete">delete_all</button>
@@ -81,9 +85,8 @@
     </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+
     <script src="static/js/vendor/jquery.ui.widget.js"></script>
-    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
     <script src="static/js/jquery.iframe-transport.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
