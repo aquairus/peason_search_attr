@@ -29,7 +29,7 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-md-4" id="col-1">
+            <div class="col-md-6" id="col-1">
                 <h2>video</h2>
 
                 <table class="table">
@@ -50,34 +50,26 @@
 
             </div>
 
-            <div class="col-md-4" id="col-2">
+            <div class="col-md-6" id="col-2">
 
+                <h2>Select</h2>
+                <p id="peason_list"></p>
+                <hr>
+                <button type="button" class="btn btn-danger" id="delete">peason</button>
+                <button type="button" class="btn btn-success" id="gen">peason</button>
+                <button type="button" class="btn btn-success" id="gen_all">peason</button>
+
+
+                <hr>
                 <h2>Search</h2>
                 <div class="sort">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sort
+                    <!-- <div class="btn-group"> -->
+                        <button type="button" class="btn btn-info " >
+                            search
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a id="by_name">by_name</a>
-                            </li>
-                            <li>
-                                <a id="by_id">by_id</a>
-                            </li>
-                            <li>
-                                <a id="by_grade">by_grade</a>
-                                </† </ul>
-                    </div>
                 </div>
-                <hr>
-                <h3>result</h3>
-                <p id="last_insert"></p>
-                <hr>
-                <button type="button" class="btn btn-danger" id="delete">delete_all</button>
-                <button type="button" class="btn btn-success" id="gen">generate</button>
-                <button type="button" class="btn btn-success" id="gen_all">generate_all</button>
+
 
 
             </div>
@@ -89,6 +81,10 @@
     <script src="static/js/vendor/jquery.ui.widget.js"></script>
     <script src="static/js/jquery.iframe-transport.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+        var player = videojs('my-player');
+        player.width(800)
+    </script>
 
 </body>
 
