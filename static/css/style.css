@@ -4,3 +4,27 @@ body {
   padding-top: 60px;
 }
 */
+
+.table{
+
+margin: 20px;
+padding: 10px;
+border-width:2px;
+border-style:solid;
+}
+
+
+#last_insert{
+
+height:100px;
+
+}
+
+.sort{
+
+height:50px;
+
+}
+.btn-group{
+  float:right;
+}

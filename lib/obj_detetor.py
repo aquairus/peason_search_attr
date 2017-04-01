@@ -6,6 +6,7 @@ import sys
 from imutils.object_detection import non_max_suppression
 from imutils import paths
 import imutils
+from PIL import Image, ImageEnhance
 
 hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
@@ -27,8 +28,16 @@ def get_peason_bbox(image):
             p[1]=1
     return pick
 
+
+def pil_enhence(cv2_img):
+    pil_img = Image.fromarray(cv2_img)
+    im_enhance = ImageEnhance.Color(pil_img).enhance(2)
+    result_img = np.array(im_enhance, dtype=np.uint8)
+    return result_img
+
 def get_pedestrian_image(image_key):
     image = cv2.imread(image_key)
+    image=pil_enhence(image)
     scale=600.0/image.shape[1]
     image = imutils.resize(image, width=min(400, image.shape[1]))
     return   image

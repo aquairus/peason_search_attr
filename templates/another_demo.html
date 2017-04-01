@@ -1,3 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>video_search</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+
+<body>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active">
+            <a href="#">Home</a>
+        </li>
+
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-4" id="col-1">
+                <h2>report</h2>
+
+                <table class="table">
+
+                    <tbody>
+
+                        <tr>
+                            <td>uid</td>
+                            <td>name</td>
+                            <td>age</td>
+                            <td>class</td>
+                            <td>score</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="col-md-4" id="col-2">
+
+                <h2>button</h2>
+                <div class="sort">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sort
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a id="by_name">by_name</a>
+                            </li>
+                            <li>
+                                <a id="by_id">by_id</a>
+                            </li>
+                            <li>
+                                <a id="by_grade">by_grade</a>
+                                </† </ul>
+                    </div>
+                </div>
+                <hr>
+                <h3>insert:</h3>
+                <p id="last_insert"></p>
+                <hr>
+                <button type="button" class="btn btn-danger" id="delete">delete_all</button>
+                <button type="button" class="btn btn-success" id="gen">generate</button>
+                <button type="button" class="btn btn-success" id="gen_all">generate_all</button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <script src="static/js/vendor/jquery.ui.widget.js"></script>
+    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="static/js/jquery.iframe-transport.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+
+
+<!--
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -6,30 +101,25 @@
     <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
     <script src="//vjs.zencdn.net/5.11/video.min.js"></script>
     <script src="http://api.html5media.info/1.1.5/html5media.min.js"></script>
-</head>
-
+</head> -->
+<!--
 <body>
 
-  <video
-    id="my-player"
-    class="video-js"
-    controls
-    preload="auto"
-    poster="//vjs.zencdn.net/v/oceans.png"
-    data-setup='{}'>
-  <source src="/video/ruc_3.mp4" type="video/mp4"></source>
-  <!-- <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
-  <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source> -->
-  <p class="vjs-no-js">
-    To view this video please enable JavaScript, and consider upgrading to a
-    web browser that
-    <a href="http://videojs.com/html5-video-support/" target="_blank">
-      supports HTML5 video
-    </a>
-  </p>
-</video>
+    <video id="my-player" class="video-js" controls preload="auto" poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'>
+      <source src="/video/ruc_3.mp4" type="video/mp4"></source>
 
-</body>
-<script> var player = videojs('my-player');</script>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">
+          supports HTML5 video
+        </a>
+      </p>
+    </video>
 
-</html>
+</body> -->
+<!-- <script>
+    var player = videojs('my-player');
+</script>
+
+</html> -->
