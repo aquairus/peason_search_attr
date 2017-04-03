@@ -9,7 +9,7 @@ import os
 import PIL
 from PIL import Image
 import cv2
-from lib.image_parser import parse_image
+from lib.image_parser import parse_image,parse_frame
 from elasticsearch import Elasticsearch
 es=Elasticsearch("222.29.193.166:9200")
 
