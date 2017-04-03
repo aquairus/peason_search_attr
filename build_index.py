@@ -32,14 +32,13 @@ if __name__ == '__main__':
     es.indices.create(index='peason_video', ignore=400)
 
     while rval:
-        rval, frame = vc.read()
-        if frame:
-            pedestrian_attr=parse_image(frame)
-            for peason in pedestrian_attr:
-                peason['time']=index
-                res = es.index(index="peason_video", doc_type='peason', body=peason)
-                print peason
-                print res
+        pedestrian_attr=parse_image(frame)
+        for peason in pedestrian_attr:
+            peason['time']=index
+            res = es.index(index="peason_video", doc_type='peason', body=peason)
+            print peason
+            print res
         index += 1
+        rval, frame = vc.read()
         # cv2.imwrite('result/'+str(index) + '.jpg',frame)
     ##app.run(host='0.0.0.0', port=8888)
