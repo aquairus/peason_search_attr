@@ -13,7 +13,7 @@ def parse_frame(frame):
     pick=get_peason_bbox(org_img)
     pedestrian_attr=[]
     image_list=crop_pedestrian_image(org_img,pick)
-    print len(image_list)
+    #print len(image_list)
     for idx,img in enumerate(image_list):
         img_info=parse_one_pedestrian(img)
         img_info["position"]=list(pick[idx].astype(int))
@@ -27,7 +27,7 @@ def parse_image(image_key):
     pick=get_peason_bbox(org_img)
     pedestrian_attr=[]
     image_list=crop_pedestrian_image(org_img,pick)
-    print len(image_list)
+    #print len(image_list)
     for idx,img in enumerate(image_list):
         img_info=parse_one_pedestrian(img)
         img_info["position"]=list(pick[idx].astype(int))
