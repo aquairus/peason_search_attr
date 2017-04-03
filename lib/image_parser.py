@@ -18,7 +18,7 @@ def parse_frame(frame):
         img_info=parse_one_pedestrian(img)
         img_info["position"]=list(pick[idx].astype(int))
         pedestrian_attr.append(img_info)
-    draw_annotation(org_img,pedestrian_attr)
+    #draw_annotation(org_img,pedestrian_attr)
 
     return pedestrian_attr
 
@@ -47,7 +47,7 @@ def draw_annotation(img,pedestrian_attr):
                 (xC, yC, xD, yD)=info['layout'][part]
                 cv2.rectangle(img, (xC+xA, yC+yA), (xD+xA, yD+yA), (0, 255, 0), 2)
         for idx,line in enumerate(info["attr"].items()):
-            print line
+            #print line
 
             cv2.putText(img,str(line) , ( xA, idx*25+yB+50 ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 1 )
 
