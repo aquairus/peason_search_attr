@@ -7,6 +7,21 @@ attrs=[[0,1],[24,30],[51,55],[63,75],[75,83],[83,92]]
 all_nets=lib.attr_net.get_all_nets(attrs)
 
 
+
+def parse_frame(frame):
+    org_img=get_pedestrian_frame(frame)
+    pick=get_peason_bbox(org_img)
+    pedestrian_attr=[]
+    image_list=crop_pedestrian_image(org_img,pick)
+    print len(image_list)
+    for idx,img in enumerate(image_list):
+        img_info=parse_one_pedestrian(img)
+        img_info["position"]=list(pick[idx].astype(int))
+        pedestrian_attr.append(img_info)
+    draw_annotation(org_img,pedestrian_attr)
+
+    return pedestrian_attr
+
 def parse_image(image_key):
     org_img=get_pedestrian_image(image_key)
     pick=get_peason_bbox(org_img)

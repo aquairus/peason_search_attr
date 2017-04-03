@@ -42,6 +42,12 @@ def get_pedestrian_image(image_key):
     image = imutils.resize(image, width=min(400, image.shape[1]))
     return   image
 
+def get_pedestrian_frame(frame):
+    image=pil_enhence(frame)
+    scale=600.0/image.shape[1]
+    image = imutils.resize(image, width=min(400, image.shape[1]))
+    return   image
+
 def draw_rectangle(image,pick):
 
     for (xA, yA, xB, yB) in pick:
