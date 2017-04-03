@@ -24,8 +24,10 @@ if __name__ == '__main__':
         rval , frame = vc.read()
     else:
         rval = False
-
-    es.indices.delete(index='peason_video' )
+    try:
+        es.indices.delete(index='peason_video' )
+    except BaseException,e:
+        print 'no index before'
     es.indices.create(index='peason_video', ignore=400)
 
     while rval:
