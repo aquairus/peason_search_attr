@@ -35,9 +35,12 @@ if __name__ == '__main__':
         pedestrian_attr=parse_frame(frame)
         for peason in pedestrian_attr:
             peason['time']=index
+            for k,v in peason['attr'].items():
+                peason[k]=v
+            peason.pop("attr")
             res = es.index(index="peason_video", doc_type='peason', body=peason)
-            print peason
             print res
+            print index
         index += 1
         rval, frame = vc.read()
         # cv2.imwrite('result/'+str(index) + '.jpg',frame)

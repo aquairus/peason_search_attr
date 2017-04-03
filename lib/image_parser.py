@@ -79,7 +79,7 @@ def get_all_attrs(img):
             attrs_info[lib.attr_net.db.attr_eng[start][0][0]]=int(round(attr[0]))
         else:
             attr, _, score, _ = lib.attr_net.recognize_attr(single_attr_net, img, lib.attr_net.db.attr_group)
-            print attr
+            # print attr
             max_index=attr.argmax()
             #for i in range(len(attr)):
             attrs_info[lib.attr_net.db.attr_eng[max_index+start][0][0]]=1
