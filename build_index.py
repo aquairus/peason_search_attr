@@ -36,6 +36,7 @@ if __name__ == '__main__':
         for peason in pedestrian_attr:
             peason['time']=index
             for k,v in peason['attr'].items():
+                k=k("-",'')
                 peason[k]=v
             peason.pop("attr")
             res = es.index(index="peason_video", doc_type='peason', body=peason)
