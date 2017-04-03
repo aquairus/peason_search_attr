@@ -16,7 +16,7 @@ es=Elasticsearch("222.29.193.166:9200")
 if __name__ == '__main__':
 
 
-    vc = cv2.VideoCapture('/home/chenxinyuan/data/peason_search_attr/static/video/test_120_r1.mp4')
+    vc = cv2.VideoCapture('static/video/test_120_r1.mp4')
 
     index=1
 
@@ -28,6 +28,7 @@ if __name__ == '__main__':
         es.indices.delete(index='peason_video' )
     except BaseException,e:
         print 'no index before'
+
     es.indices.create(index='peason_video', ignore=400)
 
     while rval:
