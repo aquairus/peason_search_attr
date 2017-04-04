@@ -15,13 +15,13 @@ import json
 from werkzeug import secure_filename
 
 
-
-
 import cv2
 from lib.image_parser import parse_image
 from lib.upload_file import uploadfile
 from flask_gzip import Gzip
 
+from elasticsearch import Elasticsearch
+es = Elasticsearch("222.29.193.166:9200")
 app = Flask(__name__)
 #gzip = Gzip(app)
 
@@ -32,10 +32,9 @@ app.config['DATASET_FOLDER'] = 'data/dataset'
 app.config['THUMBNAIL_FOLDER'] = 'data/thumbnail/'
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024
 
-ALLOWED_EXTENSIONS = set(['txt', 'gif', 'png', 'jpg', 'jpeg', 'bmp', 'rar', 'zip', '7zip', 'doc', 'docx'])
+ALLOWED_EXTENSIONS = set(['txt', 'gif', 'png', 'jpg',
+                          'jpeg', 'bmp', 'rar', 'zip', '7zip', 'doc', 'docx'])
 IGNORED_FILES = set(['.gitignore'])
-
-
 
 
 def allowed_file(filename):
@@ -61,9 +60,9 @@ def create_thumbnai(image):
     try:
         basewidth = 80
         img = Image.open(os.path.join(app.config['UPLOAD_FOLDER'], image))
-        wpercent = (basewidth/float(img.size[0]))
-        hsize = int((float(img.size[1])*float(wpercent)))
-        img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
+        wpercent = (basewidth / float(img.size[0]))
+        hsize = int((float(img.size[1]) * float(wpercent)))
+        img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
         img.save(os.path.join(app.config['THUMBNAIL_FOLDER'], image))
 
         return True
@@ -79,7 +78,7 @@ def upload():
         try:
             file = request.files.values()[0]
 
-        except Exception,e:
+        except Exception, e:
             print traceback.format_exc()
 
         if file:
@@ -87,13 +86,14 @@ def upload():
             filename = gen_file_name(filename)
             mimetype = file.content_type
 
-
             if not allowed_file(file.filename):
-                result = uploadfile(name=filename, type=mimetype, size=0, not_allowed_msg="Filetype not allowed")
+                result = uploadfile(
+                    name=filename, type=mimetype, size=0, not_allowed_msg="Filetype not allowed")
 
             else:
                 # save file to disk
-                uploaded_file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                uploaded_file_path = os.path.join(
+                    app.config['UPLOAD_FOLDER'], filename)
                 file.save(uploaded_file_path)
 
                 # create thumbnail after saving
@@ -106,17 +106,18 @@ def upload():
                 # return json for js call back
                 result = uploadfile(name=filename, type=mimetype, size=size)
 
-
             return simplejson.dumps({"files": [result.get_file()]})
 
     if request.method == 'GET':
 
-        files = [ f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'],f)) and f not in IGNORED_FILES ]
+        files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(
+            os.path.join(app.config['UPLOAD_FOLDER'], f)) and f not in IGNORED_FILES]
 
         file_display = []
 
         for f in files:
-            size = os.path.getsize(os.path.join(app.config['UPLOAD_FOLDER'], f))
+            size = os.path.getsize(os.path.join(
+                app.config['UPLOAD_FOLDER'], f))
             file_saved = uploadfile(name=f, size=size)
             file_display.append(file_saved.get_file())
 
@@ -134,18 +135,18 @@ def get_thumbnail(filename):
 def get_file(filename):
     return send_from_directory(os.path.join(app.config['UPLOAD_FOLDER']), filename=filename)
 
+
 @app.route("/data/dataset/<string:filename>", methods=['GET'])
 def get_dataset(filename):
     return send_from_directory(os.path.join(app.config['DATASET_FOLDER']), filename=filename)
 
 
-
 @app.route('/search_image', methods=['GET', 'POST'])
 def search_image():
 
-    image_key=request.args.get('image_key', '')
+    image_key = request.args.get('image_key', '')
 
-    pedestrian_attr=parse_image(image_key)
+    pedestrian_attr = parse_image(image_key)
 
     # org_img=get_pedestrian_image(image_key)
     # pick=get_peason_bbox(org_img)
@@ -164,8 +165,7 @@ def search_image():
     #     pedestrian_attr.append(img_info)
     print pedestrian_attr
     print "fuck"
-    return  json.dumps(pedestrian_attr, ensure_ascii=False)
-
+    return json.dumps(pedestrian_attr, ensure_ascii=False)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -183,10 +183,23 @@ def another_demo():
     return render_template('another_demo.html')
 
 from flask import send_from_directory
+
+
 @app.route('/video/<filename>')
 def get_video(filename):
-    return send_from_directory("/data/peason_search_attr/static/video",filename)
+    return send_from_directory("/data/peason_search_attr/static/video", filename)
 
+
+@app.route('/search_frame', methods=['GET', 'POST'])
+def search_frame():
+    query_body=""
+    res = es.search(index="peason_video",
+                    body=query_body)
+    #image_key=request.args.get('image_key', '')
+    peason_list = res['hits']['hits']
+    for peason in peason_list:
+        show_time = peason['_source']['time']
+    return render_template('another_demo.html')
 
 
 if __name__ == '__main__':

@@ -35,9 +35,11 @@ if __name__ == '__main__':
         pedestrian_attr=parse_frame(frame)
         for peason in pedestrian_attr:
             peason['time']=index
+            peason['term']=''
             for k,v in peason['attr'].items():
                 k=k.replace("-",'')
                 peason[k]=v
+                peason['term']+=k
             peason.pop("attr")
             res = es.index(index="peason_video", doc_type='peason', body=peason)
             print res
