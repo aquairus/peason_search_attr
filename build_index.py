@@ -45,7 +45,7 @@ if __name__ == '__main__':
             res = es.index(index="peason_video", doc_type='peason', body=peason)
             print res
         cv2.imwrite('static/img/'+str(idx) + '.jpg',draw_im)
-        print index
+        print idx
         idx += 1
         rval, frame = vc.read()
         # cv2.imwrite('result/'+str(index) + '.jpg',frame)

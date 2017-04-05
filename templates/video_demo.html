@@ -136,7 +136,10 @@
             $("#peason_list").empty()
 
             $(result_list).each(function(idx,ele){
-              $('#peason_list').append("<button>"+ele+"</button>");
+              var new_ele=$("<button></button>").text(ele);
+              new_ele.val(ele)
+              new_ele.addClass('btn btn-success col-sm-10')
+              $('#peason_list').append(new_ele);
             })
             })
 
