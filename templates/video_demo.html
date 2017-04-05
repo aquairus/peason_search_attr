@@ -125,11 +125,16 @@
           // var low=$("#lower_color")[0].value
           var up=$("#up_color")[0].value
           var male=$("#optionsRadios1")[0].checked
-          if (male){var female=0
-          else var famele=1}
-          var target_url=''
+          if (male){var female="0"
+          else var famele="1"}
+          var target_url='/search_frame?tags=up'+up+"&gender="+famele
 
           $.get(target_url, function(result){
+            $("#peason_list").empty()
+
+            $(result_list).each(function(idx,ele){
+              $('#peason_list').append("<button>"+ele+"</button>");
+            })
             })
 
           }
