@@ -31,7 +31,8 @@ def get_peason_bbox(image):
 
 def pil_enhence(cv2_img):
     pil_img = Image.fromarray(cv2_img)
-    im_enhance = ImageEnhance.Color(pil_img).enhance(2)
+    im_enhance =pil_img
+     #ImageEnhance.Color(pil_img).enhance(2)
     result_img = np.array(im_enhance, dtype=np.uint8)
     return result_img
 
