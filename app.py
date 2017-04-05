@@ -196,6 +196,8 @@ def search_frame():
     keys_str = request.args.get('tags', "")
     if keys_str:
         keys=keys_str.split(",")
+    else:
+        keys=[]
     gender=request.args.get('gender', "1")
     query_body=get_esquery(keys,gender)
     res = es.search(index="peason_video",
