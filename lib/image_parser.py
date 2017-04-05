@@ -19,8 +19,8 @@ def parse_frame(frame):
         img_info["position"]=list(pick[idx].astype(int))
         pedestrian_attr.append(img_info)
     #draw_annotation(org_img,pedestrian_attr)
-
-    return pedestrian_attr
+    draw_im=draw_annotation(org_img,pedestrian_attr)
+    return draw_im,pedestrian_attr
 
 def parse_image(image_key):
     org_img=get_pedestrian_image(image_key)
@@ -33,8 +33,8 @@ def parse_image(image_key):
         img_info["position"]=list(pick[idx].astype(int))
         pedestrian_attr.append(img_info)
     draw_im=draw_annotation(org_img,pedestrian_attr)
-    cv2.imwrite('./data/result.jpg', draw_im)
-    return pedestrian_attr
+
+    return draw_im,pedestrian_attr
 
 
 def draw_annotation(img,pedestrian_attr):
