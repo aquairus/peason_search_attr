@@ -30,13 +30,12 @@ def get_peason_bbox(image):
 
 
 def pil_enhence(cv2_img):
-    m = deHaze(cv2_img/255.0)*255
-    #pil_img = Image.fromarray(m)
-    #im_enhance =pil_img
+    #m = deHaze(cv2_img/255.0)*255
+    pil_img = Image.fromarray(cv2_img)
+    im_enhance =pil_img
      #ImageEnhance.Color(pil_img).enhance(2)
-    #result_img = np.array(im_enhance, dtype=np.uint8)
-    return m
-    #result_img
+    result_img = np.array(im_enhance, dtype=np.uint8)
+    return result_img
 
 def get_pedestrian_image(image_key):
     image = cv2.imread(image_key)
