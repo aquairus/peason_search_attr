@@ -39,7 +39,7 @@ if __name__ == '__main__':
             for k,v in peason['attr'].items():
                 k=k.replace("-",'')
                 peason[k]=v
-                peason['term']+=k
+                peason['tag']+=k+" "
             peason.pop("attr")
             res = es.index(index="peason_video", doc_type='peason', body=peason)
             print res

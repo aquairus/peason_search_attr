@@ -189,10 +189,12 @@ from flask import send_from_directory
 def get_video(filename):
     return send_from_directory("/data/peason_search_attr/static/video", filename)
 
-
+from lib.es_query import get_query_body
 @app.route('/search_frame', methods=['GET', 'POST'])
 def search_frame():
-    query_body=""
+    keys = request.args.get('tags', [])
+    gender=request.args.get('gender', "1")
+    query_body=get_query_body(keys,gender)
     res = es.search(index="peason_video",
                     body=query_body)
     #image_key=request.args.get('image_key', '')
