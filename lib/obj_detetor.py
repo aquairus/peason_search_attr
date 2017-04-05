@@ -7,7 +7,7 @@ from imutils.object_detection import non_max_suppression
 from imutils import paths
 import imutils
 from PIL import Image, ImageEnhance
-
+from dehaze_lib import *
 hog = cv2.HOGDescriptor()
 hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
@@ -30,7 +30,8 @@ def get_peason_bbox(image):
 
 
 def pil_enhence(cv2_img):
-    pil_img = Image.fromarray(cv2_img)
+    m = deHaze(cv2_img/255.0)*255
+    pil_img = Image.fromarray(m)
     im_enhance =pil_img
      #ImageEnhance.Color(pil_img).enhance(2)
     result_img = np.array(im_enhance, dtype=np.uint8)
