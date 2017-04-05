@@ -35,7 +35,7 @@ if __name__ == '__main__':
         pedestrian_attr=parse_frame(frame)
         for peason in pedestrian_attr:
             peason['time']=index
-            peason['term']=''
+            peason['tag']=''
             for k,v in peason['attr'].items():
                 k=k.replace("-",'')
                 peason[k]=v
