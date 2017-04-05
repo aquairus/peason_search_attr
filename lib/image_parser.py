@@ -32,8 +32,8 @@ def parse_image(image_key):
         img_info=parse_one_pedestrian(img)
         img_info["position"]=list(pick[idx].astype(int))
         pedestrian_attr.append(img_info)
-    draw_annotation(org_img,pedestrian_attr)
-
+    draw_im=draw_annotation(org_img,pedestrian_attr)
+    cv2.imwrite('./data/result.jpg', draw_im)
     return pedestrian_attr
 
 
@@ -50,10 +50,10 @@ def draw_annotation(img,pedestrian_attr):
             #print line
 
             cv2.putText(img,str(line) , ( xA, idx*25+yB+50 ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, ( 0, 0, 0 ), 1 )
+    return img
 
 
 
-    cv2.imwrite('./data/result.jpg', img)
     # return 0
 
 def parse_one_pedestrian(img):

@@ -147,8 +147,8 @@ def search_image():
 
     image_key = request.args.get('image_key', '')
 
-    pedestrian_attr = parse_image(image_key)
-
+    draw_im,pedestrian_attr = parse_image(image_key)
+    cv2.imwrite('./data/result.jpg', draw_im)
     # org_img=get_pedestrian_image(image_key)
     # pick=get_peason_bbox(org_img)
     # pedestrian_attr=[]

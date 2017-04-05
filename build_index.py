@@ -16,7 +16,7 @@ es=Elasticsearch("222.29.193.166:9200")
 if __name__ == '__main__':
 
 
-    vc = cv2.VideoCapture('static/video/test_120_r1.mp4')
+    vc = cv2.VideoCapture('static/video/test_240_r1.mp4')
 
     index=1
 
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     es.indices.create(index='peason_video', ignore=400)
 
     while rval:
-        pedestrian_attr=parse_frame(frame)
+        draw_im,pedestrian_attr=parse_frame(frame)
         for peason in pedestrian_attr:
             peason['time']=index
             peason['tag']=''
@@ -44,7 +44,7 @@ if __name__ == '__main__':
             peason.pop("attr")
             res = es.index(index="peason_video", doc_type='peason', body=peason)
             print res
-        cv2.imwrite('static/img/'+str(index) + '.jpg',frame)
+        cv2.imwrite('static/img/'+str(index) + '.jpg',draw_im)
         print index
         index += 1
         rval, frame = vc.read()
