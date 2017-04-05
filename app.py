@@ -18,7 +18,7 @@ from werkzeug import secure_filename
 import cv2
 from lib.image_parser import parse_image
 from lib.upload_file import uploadfile
-from lib.es_query import get_query_body
+from lib.es_query import get_esquery
 from flask_gzip import Gzip
 
 from elasticsearch import Elasticsearch
@@ -195,7 +195,7 @@ def get_video(filename):
 def search_frame():
     keys = request.args.get('tags', [])
     gender=request.args.get('gender', "1")
-    query_body=get_query_body(keys,gender)
+    query_body=get_esquery(keys,gender)
     res = es.search(index="peason_video",
                     body=query_body)
     #image_key=request.args.get('image_key', '')

@@ -2,12 +2,6 @@ query_template={
     "query": {
         "bool": {
             "must": {
-                "match": {
-                    "lowBlack": "1"
-                },
-                "match":{
-                "   upBlue":"1"
-                }
             },
             "filter": {
                 "term": {
@@ -17,3 +11,10 @@ query_template={
         }
     }
 }
+
+def get_esquery(keys,gender):
+    new_query=query_template.copy()
+    for key in keys:
+        new_query['query']['bool']['must'][key]="1"
+    new_query['query']['bool']['filter']['term']["Female"]=str(genter)
+    return new_query
