@@ -101,7 +101,7 @@
                       <h2>Search</h2>
                           <div class="sort">
 
-                            <button type="button" class="btn btn-info " >
+                            <button type="button" id="search" class="btn btn-info " >
                                 search
                             </button>
                           </div>
@@ -121,6 +121,14 @@
     <script>
         var player = videojs('my-player');
         player.width(800)
+        $("search").click(function(){
+          var low=$("#lower_color")[0].value
+          var up=$("#up_color")[0].value
+          var male=$("#optionsRadios1")[0].checked
+          if (male){var female=0}
+          else var famele=1}
+      )
+        $("#lower_color")[0].value
     </script>
 
 </body>
