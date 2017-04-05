@@ -131,7 +131,7 @@
           if (male){var female="0"}
           else {var famele="1"}
           var target_url='/search_frame?tags=up'+up+"&gender="+famele
-
+          console.log(target_url)
           $.get(target_url, function(result){
             $("#peason_list").empty()
 
