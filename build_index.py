@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     vc = cv2.VideoCapture('static/video/test_240_r1.mp4')
 
-    index=1
+    idx=1
 
     if vc.isOpened():
         rval , frame = vc.read()
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     while rval:
         draw_im,pedestrian_attr=parse_frame(frame)
         for peason in pedestrian_attr:
-            peason['time']=index
+            peason['time']=idx
             peason['tag']=''
             for k,v in peason['attr'].items():
                 k=k.replace("-",'')
@@ -44,9 +44,9 @@ if __name__ == '__main__':
             peason.pop("attr")
             res = es.index(index="peason_video", doc_type='peason', body=peason)
             print res
-        cv2.imwrite('static/img/'+str(index) + '.jpg',draw_im)
+        cv2.imwrite('static/img/'+str(idx) + '.jpg',draw_im)
         print index
-        index += 1
+        idx += 1
         rval, frame = vc.read()
         # cv2.imwrite('result/'+str(index) + '.jpg',frame)
     ##app.run(host='0.0.0.0', port=8888)
