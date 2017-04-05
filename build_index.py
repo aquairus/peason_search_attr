@@ -44,7 +44,7 @@ if __name__ == '__main__':
             peason.pop("attr")
             res = es.index(index="peason_video", doc_type='peason', body=peason)
             print res
-        cv2.imwrite('static/img/'+str(index) + '.jpg',frame)    
+        cv2.imwrite('static/img/'+str(index) + '.jpg',frame)
         print index
         index += 1
         rval, frame = vc.read()
