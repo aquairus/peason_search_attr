@@ -31,7 +31,7 @@ def get_peason_bbox(image):
 
 def pil_enhence(cv2_img):
     #m = deHaze(cv2_img/255.0)*255
-    cv2_img=deHaze(cv2_img/255.0)*255
+    #cv2_img=deHaze(cv2_img/255.0)*255
     pil_img = Image.fromarray(cv2_img)
     im_enhance =ImageEnhance.Color(pil_img).enhance(1.2)
     #pil_img
