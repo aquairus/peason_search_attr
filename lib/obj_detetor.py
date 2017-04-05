@@ -31,6 +31,7 @@ def get_peason_bbox(image):
 
 def pil_enhence(cv2_img):
     #m = deHaze(cv2_img/255.0)*255
+    cv2_img=deHaze(cv2_img/255.0)*255
     pil_img = Image.fromarray(cv2_img)
     im_enhance =ImageEnhance.Color(pil_img).enhance(1.2)
     #pil_img
@@ -38,7 +39,7 @@ def pil_enhence(cv2_img):
      #ImageEnhance.Color(pil_img).enhance(2)
     im_enhance=im_enhance.filter(ImageFilter.SHARPEN)
     result_img = np.array(im_enhance, dtype=np.uint8)
-    result_img=deHaze(result_img/255.0)*255
+
     return result_img
 
 def get_pedestrian_image(image_key):
