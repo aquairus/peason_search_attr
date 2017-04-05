@@ -18,6 +18,7 @@ from werkzeug import secure_filename
 import cv2
 from lib.image_parser import parse_image
 from lib.upload_file import uploadfile
+from lib.es_query import get_query_body
 from flask_gzip import Gzip
 
 from elasticsearch import Elasticsearch
@@ -189,7 +190,7 @@ from flask import send_from_directory
 def get_video(filename):
     return send_from_directory("/data/peason_search_attr/static/video", filename)
 
-from lib.es_query import get_query_body
+
 @app.route('/search_frame', methods=['GET', 'POST'])
 def search_frame():
     keys = request.args.get('tags', [])
@@ -198,10 +199,14 @@ def search_frame():
     res = es.search(index="peason_video",
                     body=query_body)
     #image_key=request.args.get('image_key', '')
+    show_time_list=[]
     peason_list = res['hits']['hits']
     for peason in peason_list:
         show_time = peason['_source']['time']
-    return render_template('another_demo.html')
+        print show_time
+        show_time_list.append(show_time)
+    return show_time_list
+    #render_template('another_demo.html')
 
 
 if __name__ == '__main__':
