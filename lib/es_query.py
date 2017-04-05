@@ -5,7 +5,6 @@ query_template={
             },
             "filter": {
                 "term": {
-                    "Female": "1"
                 }
             }
         }
@@ -17,4 +16,5 @@ def get_esquery(keys,gender):
     for key in keys:
         new_query['query']['bool']['must'][key]="1"
     new_query['query']['bool']['filter']['term']["Female"]=str(gender)
+    print new_query
     return new_query
