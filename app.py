@@ -193,7 +193,9 @@ def get_video(filename):
 
 @app.route('/search_frame', methods=['GET', 'POST'])
 def search_frame():
-    keys = request.args.get('tags', [])
+    keys_str = request.args.get('tags', "")
+    if keys_str:
+        keys=keys_str.split()
     gender=request.args.get('gender', "1")
     query_body=get_esquery(keys,gender)
     res = es.search(index="peason_video",
