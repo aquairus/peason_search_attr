@@ -13,6 +13,7 @@ query_template={
 
 def get_esquery(keys,gender):
     new_query=query_template.copy()
+    new_query['query']['bool']['must']=[]
     for key in keys:
         new_match={"match":{key:"1"}}
         new_query['query']['bool']['must'].append(new_match)
