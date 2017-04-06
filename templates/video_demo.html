@@ -126,6 +126,7 @@
         var player = videojs('my-player');
         player.width(800)
         $("#search").click(function(){
+          player.play()
           // var low=$("#lower_color")[0].value
           var up=$("#up_color")[0].value
           var male=$("#optionsRadios1")[0].checked
@@ -143,7 +144,7 @@
               new_ele.val(ele)
               new_ele.addClass('btn btn-success col-sm-10 peason')
               new_ele.click(function(event) {
-                  player.play()
+
                   player.currentTime(ele-2);
                   player.pause()
               });
