@@ -143,7 +143,9 @@
               new_ele.val(ele)
               new_ele.addClass('btn btn-success col-sm-10 peason')
               new_ele.click(function(event) {
+                  player.play()
                   player.currentTime(ele-2);
+                  player.pause()
               });
               $('#peason_list').append(new_ele);
               })
