@@ -138,10 +138,13 @@
             $("#peason_list").empty()
             orz=result
             var result_list= JSON.parse(result)
-            result_list.forEach(function(idx,ele){
+            result_list.forEach(function(ele,idx){
               var new_ele=$("<button></button>").text(ele);
               new_ele.val(ele)
-              new_ele.addClass('btn btn-success col-sm-10')
+              new_ele.addClass('btn btn-success col-sm-10 peason')
+              new_ele.click(function(event) {
+                  player.currentTime(ele);
+              });
               $('#peason_list').append(new_ele);
               })
             })
