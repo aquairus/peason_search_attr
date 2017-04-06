@@ -122,6 +122,7 @@
     <script src="static/js/jquery.iframe-transport.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>
+      var orz;
         var player = videojs('my-player');
         player.width(800)
         $("#search").click(function(){
@@ -135,7 +136,8 @@
           $.get(target_url, function(result){
             console.log(result)
             $("#peason_list").empty()
-
+            orz=result
+            result= JSON.parse(result)
             result.Foreach(function(idx,ele){
               var new_ele=$("<button></button>").text(ele);
               new_ele.val(ele)
