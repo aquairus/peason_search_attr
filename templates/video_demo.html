@@ -137,8 +137,8 @@
             console.log(result)
             $("#peason_list").empty()
             orz=result
-            result= JSON.parse(result)
-            result.Foreach(function(idx,ele){
+            var result_list= JSON.parse(result)
+            result_list.Foreach(function(idx,ele){
               var new_ele=$("<button></button>").text(ele);
               new_ele.val(ele)
               new_ele.addClass('btn btn-success col-sm-10')
