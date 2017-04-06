@@ -126,7 +126,7 @@
         var player = videojs('my-player');
         player.width(800)
         $("#search").click(function(){
-          player.play()
+          // player.play()
           // var low=$("#lower_color")[0].value
           var up=$("#up_color")[0].value
           var male=$("#optionsRadios1")[0].checked
@@ -134,9 +134,10 @@
           if (male){female="0"}
           var target_url='/search_frame?tags=up'+up+"&gender="+female
           console.log(target_url)
+          $("#peason_list").empty()
           $.get(target_url, function(result){
             console.log(result)
-            $("#peason_list").empty()
+
             orz=result
             var result_list= JSON.parse(result)
             result_list.forEach(function(ele,idx){
