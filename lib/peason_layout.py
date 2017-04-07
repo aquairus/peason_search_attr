@@ -51,7 +51,7 @@ def parse_layout(im):
     scores, boxes = fast_rcnn.test.im_detect(net, im)
 
 
-    CONF_THRESH = 0.2
+    CONF_THRESH = 0.3
     NMS_THRESH = 0.3
     results={}
     for cls_ind, cls in enumerate(CLASSES[1:]):
