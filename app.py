@@ -214,7 +214,7 @@ def search_frame():
         print show_time
         if check_peason(peason):
             show_time_list.append(show_time)
-    return json.dumps(show_time_list, ensure_ascii=False)
+    return json.dumps(sorted(show_time_list), ensure_ascii=False)
     #show_time_list
     #render_template('another_demo.html')
 
