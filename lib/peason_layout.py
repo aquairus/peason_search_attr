@@ -35,11 +35,12 @@ def vis_detections(im, class_name, dets, thresh=0.5):
         return []
     if len(inds)>1:
         print "excuse me,muti head?"
-    for i in inds:
-        bbox = dets[i, :4]
-        score = dets[i, -1]
-        print bbox
-        print score
+    bbox  =dets[0, :4]
+    # for i in inds:
+    #     bbox = dets[i, :4]
+    #     score = dets[i, -1]
+    #     print bbox
+    #     print score
     return list(bbox.astype(int))
 
 
@@ -51,7 +52,7 @@ def parse_layout(im):
 
 
     CONF_THRESH = 0.65
-    NMS_THRESH = 0.5
+    NMS_THRESH = 0.4
     results={}
     for cls_ind, cls in enumerate(CLASSES[1:]):
         cls_ind += 1 # because we skipped background
