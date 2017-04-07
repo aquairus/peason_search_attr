@@ -69,27 +69,26 @@
                 <h2>Search</h2>
                 <div class="col-md-6" id="attr_form">
                    <form class="form-horizontal">
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label  class="col-sm-2 control-label">upper color</label>
 
                         <div class="col-sm-10">
                           <input  class="form-control" id="up_color" >
                         </div>
-                      </div>
-                      <!-- <div class="form-group">
+                      </div> -->
+                      <div class="form-group">
                        <label class="col-sm-3 control-label">upper color</label>
                         <div class="col-sm-4">
-                            <select id="up_color" name="usertype" class="selectpicker show-tick form-control" multiple data-live-search="false">
-                                    <option value="Red">red</option>
+                            <select id="up_color" class="form-control">
                                     <option value="Blue">blue</option>
                                     <option value="Yellow">Yellow</option>
                                     <option value="Green">Green</option>
                                     <option value="Pink">Pink</option>
-                                    <option value="Purple">black</option>
+                                    <option value="Purple">Black</option>
 
                             </select>
                         </div>
-                      </div> -->
+                      </div>
 
                       <!-- <div class="form-group">
                         <label  class="col-sm-2 control-label">lower color</label>
@@ -143,6 +142,7 @@
           // player.play()
           // var low=$("#lower_color")[0].value
           var up=$("#up_color")[0].value
+          if (up=="Bleck"){up="Purple"}
           var male=$("#optionsRadios1")[0].checked
           var female="1"
           if (male){female="0"}
