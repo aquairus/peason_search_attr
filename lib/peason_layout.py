@@ -38,6 +38,8 @@ def vis_detections(im, class_name, dets, thresh=0.5):
     for i in inds:
         bbox = dets[i, :4]
         score = dets[i, -1]
+        print bbox
+        print score
     return list(bbox.astype(int))
 
 
