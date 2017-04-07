@@ -48,8 +48,8 @@ def parse_layout(im):
     scores, boxes = fast_rcnn.test.im_detect(net, im)
 
 
-    CONF_THRESH = 0.8
-    NMS_THRESH = 0.3
+    CONF_THRESH = 0.65
+    NMS_THRESH = 0.5
     results={}
     for cls_ind, cls in enumerate(CLASSES[1:]):
         cls_ind += 1 # because we skipped background
@@ -61,6 +61,7 @@ def parse_layout(im):
         dets = dets[keep, :]
         bbox=vis_detections(im, cls, dets, thresh=CONF_THRESH)
         results[cls]=bbox
+    print  results
     return results
 
 

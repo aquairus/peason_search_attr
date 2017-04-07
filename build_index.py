@@ -16,7 +16,7 @@ es=Elasticsearch("222.29.193.166:9200")
 if __name__ == '__main__':
 
 
-    vc = cv2.VideoCapture('static/video/test_240_r1.mp4')
+    vc = cv2.VideoCapture('static/video/test_120_r1.mp4')
 
     idx=1
 
