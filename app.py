@@ -178,6 +178,10 @@ def index():
 def video_demo():
     return render_template('video_demo.html')
 
+@app.route('/ping', methods=['GET', 'POST'])
+def ping():
+    return "pong"
+
 
 @app.route('/another_demo', methods=['GET', 'POST'])
 def another_demo():
