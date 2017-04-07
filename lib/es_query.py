@@ -29,6 +29,6 @@ def check_peason(peason):
             (xC, yC, xD, yD)=layout[part]
             contains+=1
             print layout[part]
-    if 0:
+    if contains<0:
         return 0
     return 1
