@@ -16,7 +16,7 @@ imagePath="/Users/apple/desktop/2.jpg"
 
 def get_peason_bbox(image):
 
-    (rects, weights) = hog.detectMultiScale(image, winStride=(4, 4),padding=(8, 8), scale=1.05)
+    (rects, weights) = hog.detectMultiScale(image, winStride=(4, 4),padding=(8, 8), scale=1.04)
 
 
     rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
