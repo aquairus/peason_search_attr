@@ -20,3 +20,13 @@ def get_esquery(keys,gender):
     new_query['query']['bool']['filter']['term']["Female"]=str(gender)
     print new_query
     return new_query
+
+def check_peason(peason):
+    contains=0
+    layout=peason['_source']['layout']
+    for part in ["up","mid","leg"]:
+        (xC, yC, xD, yD)=layout[part]
+        print layout[part]
+    if 0:
+        return 0
+    return 1
