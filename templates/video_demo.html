@@ -137,8 +137,11 @@
           $("#peason_list").empty()
           $.get(target_url, function(result){
             console.log(result)
-
+            if (result=="[]"){
+              $('#peason_list').append("<p>no peason found</p>";
+            }
             orz=result
+
             var result_list= JSON.parse(result)
             result_list.forEach(function(ele,idx){
               var new_ele=$("<button></button>").text(ele);
