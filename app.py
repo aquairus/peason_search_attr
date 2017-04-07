@@ -212,7 +212,7 @@ def search_frame():
     for peason in peason_list:
         show_time = peason['_source']['time']
         print show_time
-        if check_peason(peason):
+        if check_peason(peason['_source']):
             show_time_list.append(show_time)
     return json.dumps(sorted(show_time_list), ensure_ascii=False)
     #show_time_list

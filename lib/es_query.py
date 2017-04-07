@@ -23,7 +23,7 @@ def get_esquery(keys,gender):
 
 def check_peason(peason):
     contains=0
-    layout=peason['_source']['layout']
+    layout=peason['layout']
     for part in ["up","mid","leg"]:
         if layout[part]:
             (xC, yC, xD, yD)=layout[part]
