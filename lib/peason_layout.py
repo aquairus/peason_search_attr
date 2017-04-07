@@ -35,12 +35,12 @@ def vis_detections(im, class_name, dets, thresh=0.5):
         return []
     if len(inds)>1:
         print "excuse me,muti head?"
-    bbox  =dets[0, :4]
     # for i in inds:
     #     bbox = dets[i, :4]
     #     score = dets[i, -1]
     #     print bbox
     #     print score
+    bbox  =dets[0, :4]
     return list(bbox.astype(int))
 
 
