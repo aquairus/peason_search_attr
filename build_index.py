@@ -35,8 +35,7 @@ if __name__ == '__main__':
 
     while rval:
         draw_im,pedestrian_attr=parse_frame(frame)
-        if idx<45 and idx>30:
-            continue
+
 
         for peason in pedestrian_attr:
             peason['time']=idx
