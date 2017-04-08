@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     #while rval:
     for i in range(120):
-        if idx<100 and idx>0:
+        if idx<101 and idx>0:
             pass
         else:
             draw_im,pedestrian_attr=parse_frame(frame)
