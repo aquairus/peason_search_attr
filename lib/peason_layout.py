@@ -64,7 +64,7 @@ def parse_layout(im):
         dets = dets[keep, :]
         bbox=vis_detections(im, cls, dets, thresh=CONF_THRESH)
         results[cls]=bbox
-    print  results
+    # print  results
     return results
 
 
