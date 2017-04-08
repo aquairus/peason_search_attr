@@ -19,6 +19,7 @@ def parse_frame(frame):
         img_info["position"]=list(pick[idx].astype(int))
         if check_peason(img_info):
             pedestrian_attr.append(img_info)
+            print img_info
     #draw_annotation(org_img,pedestrian_attr)
     draw_im=draw_annotation(org_img,pedestrian_attr)
     return draw_im,pedestrian_attr
