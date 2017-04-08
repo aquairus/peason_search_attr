@@ -35,8 +35,6 @@ if __name__ == '__main__':
 
     while rval:
         draw_im,pedestrian_attr=parse_frame(frame)
-
-
         for peason in pedestrian_attr:
             peason['time']=idx
             peason['tag']=''
@@ -45,9 +43,9 @@ if __name__ == '__main__':
                 peason[k]=v
                 peason['tag']+=k+" "
             peason.pop("attr")
-            if check_peason(peason):
-                res = es.index(index="peason_video", doc_type='peason', body=peason)
-                print res
+            #if check_peason(peason):
+            res = es.index(index="peason_video", doc_type='peason', body=peason)
+            print res
         cv2.imwrite('static/img/'+str(idx) + '.jpg',draw_im)
         print idx
         idx += 1
