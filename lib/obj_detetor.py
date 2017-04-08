@@ -17,10 +17,10 @@ imagePath="/Users/apple/desktop/2.jpg"
 def get_peason_bbox(image):
 
     # (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.6, winStride=(2,4),padding=(12, 12), scale=1.08)
-    (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.3,winStride=(8, 8),padding=(16, 16), scale=1.05)
+    (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.3,winStride=(4, 4),padding=(16, 16), scale=1.05)
     rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
     print (weights)
-    pick = non_max_suppression(rects, probs=weights, overlapThresh=0.9)
+    pick = non_max_suppression(rects, probs=weights, overlapThresh=0.7)
     print (pick)
     for p in pick:
         if p[0]<1:
@@ -46,12 +46,12 @@ def pil_enhence(cv2_img):
 def get_pedestrian_image(image_key):
     image = cv2.imread(image_key)
     image=pil_enhence(image)
-    image = imutils.resize(image, width=min(850, image.shape[1]))
+    image = imutils.resize(image, width=min(600, image.shape[1]))
     return   image
 
 def get_pedestrian_frame(frame):
     image=pil_enhence(frame)
-    image = imutils.resize(image, width=min(850, image.shape[1]))
+    image = imutils.resize(image, width=min(600, image.shape[1]))
 
     return   image
 
