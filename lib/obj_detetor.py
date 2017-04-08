@@ -21,8 +21,7 @@ def get_peason_bbox(image):
 
     rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
     print (weights)
-    pick = rects
-    non_max_suppression(rects, probs=None, overlapThresh=0.9)
+    pick = non_max_suppression(rects, probs=None, overlapThresh=0.3)
     for p in pick:
         if p[0]<1:
             p[0]=1
