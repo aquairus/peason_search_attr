@@ -31,7 +31,7 @@ def check_peason(peason):
             print layout[part]
     if contains<1:
         return 0
-    if layout['mid'] and layout['leg']:
-        if layout['mid'][1]>layout['leg'][1]:
-            return 0
+    # if layout['mid'] and layout['leg']:
+    #     if layout['mid'][1]>layout['leg'][1]:
+    #         return 0
     return 1
