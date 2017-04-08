@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     #while rval:
     for i in range(120):
-        if idx<45 and idx>30:
+        if idx<100 and idx>0:
             pass
         else:
             draw_im,pedestrian_attr=parse_frame(frame)
@@ -46,6 +46,7 @@ if __name__ == '__main__':
                     k=k.replace("-",'')
                     peason[k]=v
                     peason['tag']+=k+" "
+                    print k
                 peason.pop("attr")
                 #if check_peason(peason):
                 res = es.index(index="peason_video", doc_type='peason', body=peason)
