@@ -32,7 +32,9 @@ def parse_image(image_key):
     for idx,img in enumerate(image_list):
         img_info=parse_one_pedestrian(img)
         img_info["position"]=list(pick[idx].astype(int))
-        pedestrian_attr.append(img_info)
+        if check_peason(img_info):
+            pedestrian_attr.append(img_info)
+
     draw_im=draw_annotation(org_img,pedestrian_attr)
 
     return draw_im,pedestrian_attr
