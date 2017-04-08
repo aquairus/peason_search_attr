@@ -39,7 +39,6 @@ if __name__ == '__main__':
             pass
         else:
             draw_im,pedestrian_attr=parse_frame(frame)
-
             for peason in pedestrian_attr:
                 peason['time']=idx
                 peason['tag']=''
