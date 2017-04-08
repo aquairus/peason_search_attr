@@ -17,7 +17,7 @@ imagePath="/Users/apple/desktop/2.jpg"
 def get_peason_bbox(image):
 
     # (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.6, winStride=(2,4),padding=(12, 12), scale=1.08)
-    (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.3,winStride=(2, 2),padding=(16, 16), scale=1.03)
+    (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.3,winStride=(8, 8),padding=(16, 16), scale=1.05)
     rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
     print (weights)
     pick = non_max_suppression(rects, probs=weights, overlapThresh=0.9)
@@ -64,9 +64,9 @@ def draw_rectangle(image,pick):
 def crop_pedestrian_image(image,pick):
     img_list=[]
     for (xA, yA, xB, yB) in pick:
-        xa=int(xA+0.2*(xB-xA))
+        #xa=int(xA+0.2*(xB-xA))
         new_img = image.copy()
-        crop_img = new_img[ yA:yB,xa:xB]
+        crop_img = new_img[ yA:yB,xA:xB]
         img_list.append(crop_img)
         # cv2.imshow("cropped", crop_img)
         # cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
