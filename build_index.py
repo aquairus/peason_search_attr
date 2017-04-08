@@ -33,8 +33,12 @@ if __name__ == '__main__':
 
     es.indices.create(index='peason_video', ignore=400)
 
-    while rval:
+    #while rval:
+    for i in range(120):
         draw_im,pedestrian_attr=parse_frame(frame)
+        if idx<45 and idx>30:
+            continue
+
         for peason in pedestrian_attr:
             peason['time']=idx
             peason['tag']=''

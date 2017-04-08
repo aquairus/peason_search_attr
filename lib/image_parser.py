@@ -1,7 +1,7 @@
 import lib.attr_net
 import lib.peason_layout
 from lib.obj_detetor import *
-
+from lib.es_query import check_peason
 attrs=[[0,1],[24,30],[51,55],[63,75],[75,83],[83,92]]
 # [1,4],[4,7]]
 all_nets=lib.attr_net.get_all_nets(attrs)
@@ -17,7 +17,8 @@ def parse_frame(frame):
     for idx,img in enumerate(image_list):
         img_info=parse_one_pedestrian(img)
         img_info["position"]=list(pick[idx].astype(int))
-        pedestrian_attr.append(img_info)
+        if check_peason(img_info):
+            pedestrian_attr.append(img_info)
     #draw_annotation(org_img,pedestrian_attr)
     draw_im=draw_annotation(org_img,pedestrian_attr)
     return draw_im,pedestrian_attr
