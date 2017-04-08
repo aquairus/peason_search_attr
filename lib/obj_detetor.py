@@ -66,7 +66,7 @@ def crop_pedestrian_image(image,pick):
     for (xA, yA, xB, yB) in pick:
         xa=int(xA+0.4*(xB-xA))
         new_img = image.copy()
-        crop_img = new_img[ yA:yB,xA:xB]
+        crop_img = new_img[ yA:yB,xa:xB]
         img_list.append(crop_img)
         # cv2.imshow("cropped", crop_img)
         # cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
