@@ -17,10 +17,10 @@ imagePath="/Users/apple/desktop/2.jpg"
 def get_peason_bbox(image):
 
     # (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.6, winStride=(2,4),padding=(12, 12), scale=1.08)
-    (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.6, winStride=(2, 2),padding=(16, 16), scale=1.05)
+    (rects, weights) = hog.detectMultiScale(image,winStride=(4, 4),padding=(16, 16), scale=1.05)
     rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
     print (weights)
-    pick = non_max_suppression(rects, probs=None, overlapThresh=0.6)
+    pick = non_max_suppression(rects, probs=weights, overlapThresh=0.6)
     print (pick)
     for p in pick:
         if p[0]<1:
@@ -34,7 +34,7 @@ def pil_enhence(cv2_img):
     #m = deHaze(cv2_img/255.0)*255
     #cv2_img=deHaze(cv2_img/255.0)*255
     pil_img = Image.fromarray(cv2_img)
-    im_enhance =ImageEnhance.Color(pil_img).enhance(1.2)
+    im_enhance =ImageEnhance.Color(pil_img).enhance(1.1)
     #pil_img
     #.filter(ImageFilter.SHARPEN)
      #ImageEnhance.Color(pil_img).enhance(2)
