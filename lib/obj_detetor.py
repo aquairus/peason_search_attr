@@ -17,10 +17,10 @@ imagePath="/Users/apple/desktop/2.jpg"
 def get_peason_bbox(image):
 
     # (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.6, winStride=(2,4),padding=(12, 12), scale=1.08)
-    (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.6, winStride=(4, 4),padding=(8, 8), scale=1.05)
+    (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.4, winStride=(3, 3),padding=(16, 16), scale=1.05)
     rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
     print (weights)
-
+#    (rects, weights) = hog.detectMultiScale(image,hitThreshold=0.6, winStride=(4, 4),padding=(8, 8), scale=1.05)
     pick = non_max_suppression(rects, probs=None, overlapThresh=0.9)
     print (pick)
     for p in pick:
