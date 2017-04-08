@@ -162,10 +162,10 @@
               new_ele.val(ele)
               new_ele.addClass('btn btn-success col-sm-10 peason')
               new_ele.click(function(event) {
-
+                  $("#current_img")[0].src="http://222.29.193.166:7788/img/"+ele+".jpg"
                   player.currentTime(ele-2);
                   player.pause();
-                  $("#current_img")[0].src="http://222.29.193.166:7788/img/"+ele+".jpg"
+                  // $("#current_img")[0].src="http://222.29.193.166:7788/img/"+ele+".jpg"
               });
               $('#peason_list').append(new_ele);
               })
