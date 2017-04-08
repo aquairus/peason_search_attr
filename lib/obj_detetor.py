@@ -64,6 +64,7 @@ def draw_rectangle(image,pick):
 def crop_pedestrian_image(image,pick):
     img_list=[]
     for (xA, yA, xB, yB) in pick:
+        xA=xA+0.2*(xB-xA)
         new_img = image.copy()
         crop_img = new_img[ yA:yB,xA:xB]
         img_list.append(crop_img)
