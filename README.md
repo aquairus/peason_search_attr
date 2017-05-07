@@ -12,7 +12,7 @@
 处于隔离环境，方便迁移的考虑。本系统运行在docker 容器中。
 下面是初始化环境的一些依赖
 
-###cudnn
+### cudnn
 
 
 
@@ -23,7 +23,7 @@ sudo nvidia-docker run -v /home/chenxinyuan/data:/data -it nvidia/cuda:cudnn3-de
 环境初始化脚本 script/init.sh  会安装一些系统运行所需的依赖库
 
 
-###子项目
+### 子项目
 
 
 1. 行人属性分析 [peason_attr](https://github.com/aquairus/peason_attr)
@@ -34,16 +34,16 @@ sudo nvidia-docker run -v /home/chenxinyuan/data:/data -it nvidia/cuda:cudnn3-de
 
 本项目在faster－rcnn上略做修改，用[rap dataset](http://rap.idealtest.org)数据集训练用模型，用于分别定位行人的头部，上身，下身。获取数据集请戳以上链接。数据集需要转换格式才能用于faster rcnn的模型训练，格式转换代码位于script/rap_2_voc.py。转换完之后faster rcnn也有个别参数需要调整。
 
-###web:
+### web:
 
 本项目的http服务利用了flsk 作为web 框架，另外用了jquery-upload 作为前端文件上传控件，videojs用于视频播放控制
 
 built on Python Flask , [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/) and [videojs](https://github.com/videojs/video.js)
 
-###图像处理：
+### 图像处理：
 本项目的一些基础图像操作用到了opencv 、 pil 和 imutils 
 
-###图片索引
+### 图片索引
 
 本项目使用 elasticsearch 储存索引，这里简单的用 elasticsearch 的官方docker镜像起了一个服务.
 docker run -it -p 9200:9200 elasticsearch
@@ -76,13 +76,13 @@ upload_file| 用于图片，视频上传
 2. layout & attrbute
 3. return picture with annoation+attr
 
-##部署
+## 部署
 
 0. 安装依赖、训练模型
 1. 建立视频索引 python build_index.py
 2. 启动web服务 python app.py
 
-##演示
+## 演示
 
 有两个页面可用于展示
 
