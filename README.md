@@ -45,7 +45,8 @@ built on Python Flask , [jQuery-File-Upload](https://github.com/blueimp/jQuery-F
 
 ### 图片索引
 
-本项目使用 elasticsearch 储存索引，这里简单的用 elasticsearch 的官方docker镜像起了一个服务.
+本项目使用 elasticsearch 储存索引，这里简单的用 elasticsearch 的官方docker镜像起了一个服务
+
 docker run -it -p 9200:9200 elasticsearch
 
 
@@ -68,7 +69,7 @@ obj_detetor| 用hog svm 定位原始图片中的行人，将行人裁剪处理�
 peason_layout| 输入单个行人图片，调用rcnn网络，进行行人结构分析
 upload_file| 用于图片，视频上传
 
-#流程
+# 流程
 图片的分析流程如下，首先输入整张图片，然后切分图片中的行人，对行人进行属性和结构分析，返回整张图片的信息，建立索引。
 
 0. picture
