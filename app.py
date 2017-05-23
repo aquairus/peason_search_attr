@@ -24,7 +24,7 @@ from flask_gzip import Gzip
 from elasticsearch import Elasticsearch
 es = Elasticsearch("222.29.193.166:9200")
 app = Flask(__name__)
-#gzip = Gzip(app)
+
 
 
 app.config['SECRET_KEY'] = 'hard to guess string'
@@ -92,7 +92,7 @@ def upload():
                     name=filename, type=mimetype, size=0, not_allowed_msg="Filetype not allowed")
 
             else:
-                # save file to disk
+
                 uploaded_file_path = os.path.join(
                     app.config['UPLOAD_FOLDER'], filename)
                 file.save(uploaded_file_path)
@@ -149,21 +149,6 @@ def search_image():
 
     draw_im,pedestrian_attr = parse_image(image_key)
     cv2.imwrite('./data/result.jpg', draw_im)
-    # org_img=get_pedestrian_image(image_key)
-    # pick=get_peason_bbox(org_img)
-    # pedestrian_attr=[]
-    # image_list=crop_pedestrian_image(org_img,pick)
-    #
-    # for img in image_list:
-    #     img_info={}
-    #     img_info['attr']=[]
-    #     attr, _, score, _ = recognize_attr(attr_net, img, db.attr_group, threshold)
-    #     for i in range(len(attr)):
-    #         if attr[i]>0 or "Female"in db.attr_eng[i][0][0]:
-    #             img_info['attr'].append("{0}  ------ {1}:            \
-    #              {2}\n".format(db.attr_eng[i][0][0],db.attr_ch[i][0][0].encode('utf-8'),attr[i]))
-    #
-    #     pedestrian_attr.append(img_info)
     print pedestrian_attr
     print "fuck"
     return json.dumps(pedestrian_attr, ensure_ascii=False)
@@ -206,7 +191,7 @@ def search_frame():
     query_body=get_esquery(keys,gender)
     res = es.search(index="peason_video",
                     body=query_body)
-    #image_key=request.args.get('image_key', '')
+
     show_time_list=[]
     peason_list = res['hits']['hits']
     for peason in peason_list:
@@ -215,8 +200,6 @@ def search_frame():
         if check_peason(peason['_source']):
             show_time_list.append(show_time)
     return json.dumps(sorted(show_time_list), ensure_ascii=False)
-    #show_time_list
-    #render_template('another_demo.html')
 
 
 if __name__ == '__main__':

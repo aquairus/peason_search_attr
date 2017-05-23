@@ -26,12 +26,15 @@
     </ul>
     <hr>
     <div class="container-fluid">
+
         <div class="row">
 
             <div class="col-md-10" id="col-1">
                 <h2>video</h2>
-
-                <table class="table">
+                <!-- <div class="row">  -->
+                   <img id="current_img" style="width:800px;heigh:600px"></img>
+                 <!-- </div> -->
+                <!-- <table class="table">
 
                   <video id="my-player" class="video-js" controls preload="auto" poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'>
                     <source src="http://222.29.193.166:7788/video/test_120_r1.mp4" type="video/mp4"></source>
@@ -45,7 +48,7 @@
                     </p>
                   </video>
 
-                </table>
+                </table> -->
             </div>
             <div class="col-md-2" id="select">
               <h2>Select</h2>
@@ -125,7 +128,7 @@
                           </div>
                   </div>
             </div>
-            <div class="row">  <img id="current_img"></img></div>
+
 
             </div>
         </div>
@@ -138,9 +141,9 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script>
       var orz;
-        var player = videojs('my-player');
-        player.width(800)
-        player.play()
+        // var player = videojs('my-player');
+        // player.width(100)
+        // player.play()
         $("#search").click(function(){
           // player.play()
           // var low=$("#lower_color")[0].value
@@ -164,8 +167,8 @@
               new_ele.addClass('btn btn-success col-sm-10 peason')
               new_ele.click(function(event) {
                   $("#current_img")[0].src="http://222.29.193.166:7788/img/"+ele+".jpg"
-                  player.currentTime(ele-2);
-                  player.pause();
+                  // player.currentTime(ele-2);
+                  // player.pause();
                   // $("#current_img")[0].src="http://222.29.193.166:7788/img/"+ele+".jpg"
               });
               $('#peason_list').append(new_ele);

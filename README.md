@@ -28,7 +28,7 @@ sudo nvidia-docker run -v /home/chenxinyuan/data:/data -it nvidia/cuda:cudnn3-de
 
 1. 行人属性分析 [peason_attr](https://github.com/aquairus/peason_attr)
 
-本项目用caffe训练行人属性分析网络，输入图片输出多项行人属性信息。在系统运行之前，请训练好相应的模型，详情请戳链接。
+本项目用caffe训练行人属性分析网络，输入图片输出多项行人属性信息。在系统运行之前，请编译好caffe，训练好相应的模型，详情请戳链接。
 
 2. 行人结构分析 [frcnn](https://github.com/rbgirshick/py-faster-rcnn)
 
@@ -41,7 +41,7 @@ sudo nvidia-docker run -v /home/chenxinyuan/data:/data -it nvidia/cuda:cudnn3-de
 built on Python Flask , [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/) and [videojs](https://github.com/videojs/video.js)
 
 ### 图像处理：
-本项目的一些基础图像操作用到了opencv 、 pil 和 imutils 
+本项目的一些基础图像操作用到了opencv 、 pil 和 imutils
 
 ### 图片索引
 
@@ -59,13 +59,13 @@ app.py 是启动http 服务的脚本,包含了各个路由函数,buiid_index.py 
 
 下面给出lib 中文件的一些介绍
 
-目录 | 简介 | 
+目录 | 简介 |
 ------------ | ------------- |
-attr_net | 输入单个行人图片，调用属性分析网络，返回行人属性 | 
+attr_net | 输入单个行人图片，调用属性分析网络，返回行人属性 |
 dehaze_lib| 实现了暗通道去雾算法，用于图片预处理|
 image_parser|输入整张图片，返回所有行人属性|
 es_query|用于建立索引，查询索引|
-obj_detetor| 用hog svm 定位原始图片中的行人，将行人裁剪处理啊| 
+obj_detetor| 用hog svm 定位原始图片中的行人，将行人裁剪处理啊|
 peason_layout| 输入单个行人图片，调用rcnn网络，进行行人结构分析
 upload_file| 用于图片，视频上传
 
