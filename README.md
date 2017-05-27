@@ -34,6 +34,10 @@ sudo nvidia-docker run -v /home/chenxinyuan/data:/data -it nvidia/cuda:cudnn3-de
 
 本项目在faster－rcnn上略做修改，用[rap dataset](http://rap.idealtest.org)数据集训练用模型，用于分别定位行人的头部，上身，下身。获取数据集请戳以上链接。数据集需要转换格式才能用于faster rcnn的模型训练，格式转换代码位于script/rap_2_voc.py。转换完之后faster rcnn也有个别参数需要调整。
 
+3. RAP数据
+
+本项目训练使用了[RAP](http://rap.idealtest.org)数据集, 下载链接如下[标注](https://drive.google.com/file/d/0B11LUV32V3OLS3BGNTdIXzg2MzQ/view)，数据的话法邮件申请吧，有个协议要签。
+
 ### web:
 
 本项目的http服务利用了flsk 作为web 框架，另外用了jquery-upload 作为前端文件上传控件，videojs用于视频播放控制
